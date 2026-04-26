@@ -1,114 +1,157 @@
 # Acadex
 
-> A simple browser-based marks entry and results app for primary schools, built for fast class setup, score calculation, comments, and Excel export.
+> A fast, browser-based marks entry and results app for primary schools. Enter marks, calculate grades, assign positions, add comments, and export to Excel — all without a backend.
+
+![HTML5][Badge-HTML5] ![JavaScript][Badge-JS] ![No Backend][Badge-NoBackend]
 
 ---
 
 ## Overview
 
-Acadex is a lightweight front-end application for managing primary school assessment data in the browser. It lets a teacher set up a session, maintain a class roster, enter marks for P1 to P6, and view calculated results immediately.
+Acadex is a lightweight single-page application for managing primary school assessment data entirely in the browser. Teachers can quickly set up a session, maintain a class roster, enter marks for students across multiple subjects, and view calculated results including totals, grades, divisions, and class positions.
 
-The app keeps data locally in `localStorage`, so it works without a backend. It also loads reusable teacher and headteacher comment banks from JSON files and can export a class report to Excel.
+**No server required** — all data persists in `localStorage`. The app loads reusable comment banks from JSON files and produces Excel reports ready for printing or further editing.
+
+---
+
+## Features
+
+- **Session Setup** — Configure school, class level (P1–P6), term, and year
+- **Roster Management** — Add, remove, rename, reorder, import/export students
+- **Marks Entry** — Enter scores for each subject with live calculation
+- **Auto-Calculation** — Subject totals, aggregates, grades (D1–F9), divisions (I–U), and class positions
+- **Comment Banks** — Teacher and headteacher comments with performance-based suggestions
+- **Excel Export** — Full class reports as `.xlsx` files
+- **Session History** — Quick access to previous sessions
+
+---
 
 ## Tech Stack
 
-- **Language:** JavaScript, HTML, CSS
-- **Key Libraries:** SheetJS (`xlsx`) for Excel export
-- **Platform:** Browser-based, runs on Linux or any modern desktop browser
-- **Storage:** `localStorage` for session, roster, marks, and comments
+| Component | Technology |
+|---|---|
+| UI | HTML5, CSS3 |
+| Logic | Vanilla JavaScript (ES6+) |
+| Excel Export | [SheetJS (xlsx)](https://sheetjs.com/) |
+| Storage | Browser `localStorage` |
+| CDN | cdnjs (SheetJS library) |
 
 ---
 
 ## Project Structure
 
-```text
-EXAM_ENTRANT/
-├── index.html
-├── styles.css
-├── comments_p1p3.json
-├── comments_p4p6.json
-├── favicon.svg
-├── exports/
-└── js/
-    ├── app.js
-    ├── comments.js
-    ├── config.js
-    ├── export.js
-    ├── logic.js
-    ├── storage.js
-    └── ui.js
 ```
+EXAM_ENTRANT/
+├── index.html              # Main HTML entry point
+├── styles.css             # Application styles
+├── favicon.svg           # App icon
+├── comments_p1p3.json    # Comment bank for P1–P3
+├── comments_p4p6.json    # Comment bank for P4–P6
+├── exports/              # Downloaded Excel files (optional)
+└── js/
+    ├── app.js           # Main controller & navigation
+    ├── config.js      # Subjects, grading, division rules
+    ├── comments.js   # Comment bank loader & suggestions
+    ├── logic.js      # Mark calculation & ranking
+    ├── storage.js    # localStorage read/write
+    ├── export.js     # Excel workbook builder
+    └── ui.js         # View rendering & DOM updates
+```
+
+---
 
 ## Getting Started
 
-### Prerequisites
+### 1. Serve the files
 
-- A modern browser such as Chrome, Edge, or Firefox
-- A local web server to serve the files, so the JSON comment banks load correctly
-
-### Run the App
-
-From the project root:
+Because the app loads JSON comment banks, you need a local web server:
 
 ```bash
+# Python 3
 python3 -m http.server 8000
+
+# OR Node.js
+npx serve .
 ```
 
-Then open:
+### 2. Open in browser
 
-```text
+```
 http://localhost:8000
 ```
 
-### Usage
+### 3. Use the app
 
-1. Open the app and complete the session setup.
-2. Add students to the class roster.
-3. Enter marks in the marks entry table.
-4. Review the calculated totals, grades, divisions, and positions.
-5. Add or adjust teacher and headteacher comments.
-6. Export the full class report to Excel.
+1. **Setup** — Enter school name, select class (P1–P6), term, and year
+2. **Roster** — Add students by name
+3. **Marks Entry** — Enter marks for each subject; totals and positions update live
+4. **Results** — Review grades, divisions, and positions
+5. **Comments** — Add teacher and headteacher comments
+6. **Export** — Download the class report as `.xlsx`
+
+---
 
 ## How It Works
 
-The app is organized as a small front-end module system:
+### Lower Primary (P1–P3)
 
-- `app.js` controls navigation, session state, and actions.
-- `storage.js` reads and writes session data, roster data, marks, and comments.
-- `logic.js` performs mark parsing, totals, grades, divisions, and ranking.
-- `comments.js` loads comment banks and provides suggestions based on performance tiers.
+- **Subjects:** English, Mathematics, Literacy I, Literacy II, Religious Education
+- **Calculation:** Subject totals summed to `TOTAL_END`
+- **Ranking:** By end-of-term marks
+- **Comments:** Tiers based on `TOTAL_END` ranges
 
-For P1 to P3, comment tiers are resolved from `TOTAL_END` mark bands defined in `comments_p1p3.json` (`min_total` and `max_total`).
-- `ui.js` renders the views and keeps the interface responsive to input changes.
-- `export.js` builds the Excel workbook using SheetJS.
+### Upper Primary (P4–P6)
 
-Lower primary classes use subject totals and ranking by end marks. Upper primary classes use aggregate grades and divisions based on total aggregates.
+- **Subjects:** English, Mathematics, Science, Social Studies
+- **Calculation:** Each subject scored 0–100 and converted to grade (D1–F9); grades become aggregates (1–9); aggregates summed to `TOTAL_AGG`
+- **Grading:** D1 (90–100) through F9 (0–29)
+- **Divisions:** I (≤12), II (≤24), III (≤30), IV (≤33), U (34+)
+- **Comments:** Based on aggregate performance
+
+### Data Flow
+
+1. **Session** → Saved to localStorage on setup
+2. **Roster** → Student names and IDs persist per class
+3. **Marks** → Entered per subject, calculated on input, queued to buffer
+4. **Save** → Buffer flushed to localStorage
+5. **Export** → SheetJS builds an Excel workbook from current data
+
+---
 
 ## Configuration
 
-The grading rules, class groups, subject lists, and division thresholds live in `js/config.js`.
+Edit `js/config.js` to customize:
 
-| Item | Location | Purpose |
-|---|---|---|
-| Classes | `CONFIG.classes` | Supported class levels from P1 to P6 |
-| Subjects | `CONFIG.subjects` | Subject sets for lower and upper primary |
-| Grading | `CONFIG.gradingScale` | Converts marks to grades and aggregates |
-| Divisions | `CONFIG.divisionScale` | Converts aggregate totals to divisions |
-| Terms | `CONFIG.terms` | Session term options |
+```javascript
+classes: ['P1','P2','P3','P4','P5','P6'],    // Supported class levels
+subjects: { lower: [...], upper: [...] }, // Subject lists
+gradingScale: [...],  // Mark-to-grade mappings
+divisionScale: [...], // Aggregate-to-division thresholds
+terms: [1, 2, 3],    // Available terms
+```
 
-## Output
-
-- Session data, roster, marks, and comments are stored locally in the browser.
-- Excel exports are written as `.xlsx` files with the class, term, and year in the filename.
-- Generated files can be kept in the `exports/` folder if you want a place to collect downloads manually.
+---
 
 ## Limitations
 
-- There is no backend or user authentication.
-- Data stays on the device and browser profile where it was entered.
-- Comment suggestions depend on the bundled JSON files being available.
-- Excel export depends on the SheetJS CDN being reachable.
+- No user authentication — data lives in the browser profile
+- No cloud sync — manual export for backup
+- JSON comment banks must be served alongside the app
+- Excel export requires internet for SheetJS CDN
+
+---
+
+## Browser Compatibility
+
+Chrome · Edge · Firefox · Safari  
+(Any modern browser with ES6 and localStorage support)
+
+---
 
 ## License
 
-No license file is included yet.
+MIT License — free to use and modify.
+
+[Badge-HTML5]: https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white
+[Badge-JS]: https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=333
+[Badge-NoBackend]: https://img.shields.io/badge/No_Backend-yes-27ae60?style=flat
