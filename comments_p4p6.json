@@ -1,0 +1,110 @@
+{
+  "upper": {
+    "tiers": [
+      { "label": "Division_I",   "divs": ["I"]   },
+      { "label": "Division_II",  "divs": ["II"]  },
+      { "label": "Division_III", "divs": ["III"] },
+      { "label": "Division_IV",  "divs": ["IV"]  },
+      { "label": "Division_U",   "divs": ["U"]   }
+    ],
+    "teacher": {
+      "Division_I": [
+        "Excellent work earning Division I! You have shown real brilliance this term. Now the challenge is to stay hungry — do not let comfort replace your drive. Keep pushing, keep growing.",
+        "Division I achieved — and you earned every bit of it! But remember, the top is not a place to rest. Stay focused, stay sharp, and raise your standard even higher next term.",
+        "What a performance! Division I reflects your hard work and sharp mind. Now protect that standard — complacency is the enemy of excellence. Stay hungry and keep climbing.",
+        "You have done something truly special this term earning Division I. Do not treat this as the finish line — treat it as the foundation. The best students never stop improving.",
+        "Division I — outstanding! You proved what consistent effort produces. Now challenge yourself to do it again and do it better. Real greatness is built term after term, not once.",
+        "Brilliant results this term! Division I is yours and you deserve the praise. But the students who stay at the top are the ones who never allow themselves to settle. Keep that fire burning.",
+        "You have set a high standard this term with your Division I result. Your job now is to defend and surpass it. Stay disciplined, stay curious, and never stop reaching forward.",
+        "Division I earned — we are incredibly proud of you! This is not the peak, it is a stepping stone. The greatest version of you is still ahead. Stay driven and keep working hard.",
+        "A magnificent Division I result! You worked hard and it shows in every subject. Now your challenge is simple — do not relax. Come back next term even more determined than before.",
+        "Top of the class with a Division I — well deserved! But true champions never coast. Keep revising, keep asking questions, and keep raising the bar for yourself every single day."
+      ],
+      "Division_II": [
+        "Well done on a strong Division II this term! You have real ability and it is showing. Now let us talk about Division I — it is not far. A little more focus and you will be there.",
+        "Division II is a great result and you should be proud! But I know you can go further. Division I is within your reach — sharpen your revision and push yourself in the subjects where marks slipped.",
+        "A solid Division II performance this term! You are on the right track. Your next goal is clear — Division I. Identify the subjects holding your aggregates back and attack them next term.",
+        "Great work earning Division II! You have shown strong academic ability across the board. Now let us channel that ability into reaching the very top. Division I awaits — go and get it!",
+        "Division II achieved and we are pleased with your effort! You are just a step away from Division I. Double your revision time, ask more questions in class, and that top division is yours.",
+        "Impressive work this term — Division II well earned! You have the talent, now add the extra effort. Division I is not out of reach — believe that and work like it is yours to take.",
+        "A commendable Division II result! You worked hard and it shows. Now set your sights higher — Division I is the goal for next term. Close the gap by focusing on your two weakest subjects.",
+        "You performed well this term and Division II reflects that effort. But there is more in you — and Division I is the proof. Stay consistent, revise deeply, and come back for that top result.",
+        "Division II this term — a strong showing! You are building something solid here. The next step is Division I and you are capable of reaching it. Put in the work and do not stop until you do.",
+        "Well done for earning Division II this term! You are close to the very best — Division I is just ahead of you. Stay hungry, stay focused, and next term let us celebrate an even bigger result."
+      ],
+      "Division_III": [
+        "Division III this term — you worked and it shows. But I believe there is much more inside you. Set a clear target for next term, work harder than you did this term, and you will climb higher.",
+        "You earned Division III and that takes effort. Now let us push further. You have the potential to reach Division II and beyond — double your efforts next term and watch what you are truly capable of.",
+        "Division III achieved this term. A decent result, but your best is still ahead of you. Focus on the subjects where you lost the most marks and commit to improving each one next term.",
+        "You reached Division III and that is a foundation to build on. With more consistent revision and determination, Division II is very achievable. Believe in yourself and put in the extra work.",
+        "Division III this term — you tried and I see it. Now try harder. Your potential is bigger than this result. Come back next term with a stronger study routine and a hunger to go higher.",
+        "A fair effort earning Division III. You are capable of reaching Division II — do not settle here. Ask for help when you are stuck, revise regularly, and next term push with everything you have.",
+        "Division III shows you are working. Now let us work smarter. Look at every subject and ask yourself where you can gain more marks. That hunger to improve is what will take you to the next level.",
+        "You earned Division III this term. I am proud of your effort — and I want more from you next term. You have what it takes to do better. Come back focused, prepared and ready to prove it.",
+        "Division III is a step, not a ceiling. With more effort, more revision and more courage to ask questions in class, you can absolutely reach Division II or higher. Believe it and work for it.",
+        "A decent term earning Division III. But decent is not your limit. Your potential calls you higher — so rest well, reflect, and return next term with doubled effort and a determination to improve."
+      ],
+      "Division_IV": [
+        "Division IV this term. I know you can do better and I believe you know it too. Let us use this result as fuel — come back next term more focused, more disciplined and ready to climb higher.",
+        "You reached Division IV this term. Every single mark counts toward your aggregates — and gaining just a few extra marks per subject next term can make a big difference. Work hard and go for it.",
+        "Division IV this term. Do not be discouraged — be determined. You have potential that has not been fully unlocked yet. Next term, let us see a different level of effort from you in every subject.",
+        "A tough term resulting in Division IV. But tough terms build strong students. Come back next term ready to work harder, stay more focused in class and revise more consistently. You can improve.",
+        "Division IV tells us there is room to grow — and that growth is possible. Identify two or three subjects to target for improvement, build a study routine and commit to it. Better results will follow.",
+        "You earned Division IV this term. Let this result motivate you, not define you. With the right support and your own hard work and determination, you are capable of reaching a much higher division.",
+        "Division IV this term. I want you to hold your head up and channel this experience into action. Come back next term with fresh energy, extra effort and a decision to push yourself every single day.",
+        "A Division IV result this term. You have more in you than this — I am certain of it. Build your confidence by working on your weakest subjects first, and take it one step at a time next term.",
+        "Division IV this term. Rest well, then reflect honestly on what held you back. Then come back next term ready to address it. Hard work and consistency will absolutely move you up the divisions.",
+        "You worked this term and reached Division IV. Now double that effort next term. Your best performance is still ahead of you — go after it with everything you have. We are rooting for you."
+      ],
+      "Division_U": [
+        "This term was a hard one — but hard terms are not the end, they are the beginning of something better. You have real potential inside you. Next term, let us work together to bring it out.",
+        "A difficult term, but your story is far from finished. Every great learner faces tough stretches. What matters is what you do next. Come back with courage, focus and a willingness to try harder.",
+        "I want you to know that this result does not define your ability. You are capable of more. Next term, let us build a stronger foundation together — step by step, subject by subject.",
+        "Difficulty builds strength when you respond with effort. You have it in you to improve — I have seen it. Come back next term ready to give more of yourself to your studies. We believe in you.",
+        "Do not carry shame about this result — carry determination instead. You have potential that is waiting to be shown. Next term, show the world what you are truly made of. We are behind you.",
+        "This was a tough term and I understand that. But I want you to know — we believe in you completely. Come back next term willing to ask for help, willing to work hard, and ready to grow.",
+        "Every learner has seasons of struggle. This was yours — and that is okay. What comes next is more important. Come back next term with fresh eyes, extra effort and faith in your own ability.",
+        "You tried this term, and trying is where every improvement begins. Next term, try harder, try smarter, and lean on your teachers for support. Your breakthrough is closer than you think.",
+        "I see potential in you that your results have not yet shown. Next term, let us change that. Come back committed to revise every subject, attend every lesson and give your very best daily.",
+        "This term was a challenge but you are not alone in facing it. We are here to support you. Come back next term with belief in yourself and together we will work toward the results you deserve."
+      ]
+    },
+    "ht": {
+      "Division_I": [
+        "Division I achieved — the school is very proud of you! You have shown what dedication produces. Now protect that standard and come back next term even more determined. Never settle for less.",
+        "Outstanding Division I result! You are a credit to this school and to your family. Keep that hunger alive — the best students never stop pushing themselves to grow. Well done!",
+        "The school celebrates your brilliant Division I performance! This is the reward for hard work and focus. Do not relax — keep raising the bar and inspire those around you to do the same.",
+        "A magnificent Division I result! You have set a high standard and the school expects you to defend it next term. Stay disciplined, stay hungry and keep reaching for greater heights.",
+        "Division I — the school salutes you! You have earned this with real effort and commitment. Now challenge yourself to go even further next term. Excellence is a habit, not a moment."
+      ],
+      "Division_II": [
+        "Well done on a strong Division II result! The school is proud of your performance. Now set your sights on Division I — you are close and with greater effort next term, you will get there.",
+        "Division II earned — the school commends your hard work! But we know you can go higher. Push yourself further next term, focus on your weaker subjects, and aim for Division I.",
+        "A fine Division II result this term! The school believes you have the ability to reach Division I. Stay committed, revise consistently and come back next term ready to claim that top division.",
+        "The school is pleased with your Division II result! You are one strong term away from Division I. Stay focused, work hard every day and let us celebrate an even better result next term.",
+        "Division II — the school applauds your effort! You are building something great. Division I is your next target. Believe in your ability, put in the work and go and get it next term."
+      ],
+      "Division_III": [
+        "Division III this term — the school believes you can do better and we are here to support you. Work harder next term, seek help when needed and push yourself toward a higher division.",
+        "The school encourages you to raise your performance next term. Division III shows effort but your potential goes beyond this. Come back more focused and determined to improve.",
+        "A fair result this term. The school knows you are capable of more. Build stronger study habits, revise regularly and come back next term ready to climb higher. We are rooting for you.",
+        "Division III noted. The school urges you to target improvement in your weakest subjects next term. You have ability — now match it with consistent hard work and a desire to grow.",
+        "The school calls on you to push beyond Division III next term. Double your efforts, stay attentive in class, and let your results next term reflect the full potential we know you have."
+      ],
+      "Division_IV": [
+        "The school encourages you to respond to this Division IV result with determination and extra effort next term. You are capable of better and we will continue to support your growth.",
+        "Division IV this term — the school urges you not to be discouraged but to be more determined. Come back next term ready to work harder and push yourself toward a higher result.",
+        "The school believes in your ability to improve beyond Division IV. Work closely with your teachers, build a study routine and come back next term committed to giving your very best.",
+        "A challenging term. The school urges you and your family to work together on building stronger study habits next term. With effort and support, better results are absolutely possible.",
+        "Division IV tells us more effort is needed. The school remains fully committed to your success. Come back next term focused, determined and ready to show what you are truly capable of."
+      ],
+      "Division_U": [
+        "The school sees your potential even when results are difficult. We are here to support you fully next term. Come back with determination and a willingness to work hard every single day.",
+        "A very tough term — but the school has not given up on you and we ask you not to give up on yourself. Return next term ready to engage, to work hard and to grow. We will be with you.",
+        "The school believes deeply in your ability to improve. Do not be discouraged — be motivated to do better. With the right effort and support, better results are well within your reach.",
+        "The school calls on you to return next term with fresh determination. We will provide the support you need. All we ask is that you bring your full effort and a heart willing to learn.",
+        "Do not let this result shake your belief in yourself. The school believes in you and we are committed to walking this journey with you. Come back next term ready to work and ready to grow."
+      ]
+    }
+  }
+}
