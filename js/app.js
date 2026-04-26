@@ -6,6 +6,7 @@ const App = (() => {
 
   let session     = null;   // { school, cls, term, year }
   let currentView = 'setup';
+  let entrySubjectOrder = null;
 
   // In-memory marks buffer: { [studentId]: { FIELD: value } }
   // Synced with localStorage on save actions
@@ -48,17 +49,68 @@ const App = (() => {
       UI.renderRoster(session, roster);
     } else if (view === 'entry') {
       if (!session) { UI.toast('Please complete setup first.', 'error'); goTo('setup'); return; }
-      const roster = Storage.loadRoster(session.cls);
-      if (!roster.length) { UI.toast('Add students to the roster first.', 'info'); goTo('roster'); return; }
       marksBuffer = Storage.loadAllMarks(session.cls, session.term, session.year);
-      UI.renderEntry(session, roster, marksBuffer);
-      // Recalc all after render
-      requestAnimationFrame(() => recalcAll());
+      renderEntryView();
     } else if (view === 'results') {
       if (!session) { UI.toast('Please complete setup first.', 'error'); goTo('setup'); return; }
       const students = Storage.buildClassSnapshot(session.cls, session.term, session.year);
       UI.renderResults(session, students);
     }
+  }
+
+  function getDefaultEntrySubjectOrder() {
+    if (!session) return [];
+    const level = CONFIG.classLevel(session.cls);
+    return [...(level === 'lower' ? CONFIG.subjects.lower : CONFIG.subjects.upper)];
+  }
+
+  function normalizeEntrySubjectOrder(order) {
+    const canonical = getDefaultEntrySubjectOrder();
+    if (!Array.isArray(order) || !order.length) return canonical;
+
+    const normalized = [];
+    order.forEach(subject => {
+      if (canonical.includes(subject) && !normalized.includes(subject)) {
+        normalized.push(subject);
+      }
+    });
+
+    canonical.forEach(subject => {
+      if (!normalized.includes(subject)) normalized.push(subject);
+    });
+
+    return normalized;
+  }
+
+  function loadEntrySubjectOrder() {
+    if (!session) return [];
+    const stored = Storage.loadEntrySubjectOrder(session.cls, session.term, session.year);
+    entrySubjectOrder = normalizeEntrySubjectOrder(stored);
+    return entrySubjectOrder;
+  }
+
+  function saveEntrySubjectOrder(order) {
+    if (!session) return;
+    entrySubjectOrder = normalizeEntrySubjectOrder(order);
+    Storage.saveEntrySubjectOrder(session.cls, session.term, session.year, entrySubjectOrder);
+    if (currentView === 'entry') renderEntryView();
+  }
+
+  function resetEntrySubjectOrder() {
+    if (!session) return;
+    entrySubjectOrder = getDefaultEntrySubjectOrder();
+    Storage.clearEntrySubjectOrder(session.cls, session.term, session.year);
+    if (currentView === 'entry') renderEntryView();
+    UI.toast('Entry column order reset.', 'info');
+  }
+
+  function renderEntryView() {
+    if (!session) return;
+    const roster = Storage.loadRoster(session.cls);
+    if (!roster.length) { UI.toast('Add students to the roster first.', 'info'); goTo('roster'); return; }
+    const subjects = loadEntrySubjectOrder();
+    UI.renderEntry(session, roster, marksBuffer, subjects);
+    requestAnimationFrame(() => recalcAll());
   }
 
   // ══════════════════════════════════════════
@@ -183,7 +235,7 @@ const App = (() => {
 
   function recalcStudent(sid) {
     const level    = CONFIG.classLevel(session.cls);
-    const subjects = level === 'lower' ? CONFIG.subjects.lower : CONFIG.subjects.upper;
+    const subjects = level === 'lower' ? normalizeEntrySubjectOrder(entrySubjectOrder) : CONFIG.subjects.upper;
     const marks    = marksBuffer[sid] || {};
     const calc     = level === 'lower' ? Logic.calcLower(marks) : Logic.calcUpper(marks);
     UI.updateCalcCells(sid, calc, level, subjects);
@@ -289,6 +341,7 @@ const App = (() => {
     addStudent, removeStudent, renameStudent, exportRoster, importRoster,
     onMarkInput, validateInput, saveStudentMarks, saveAllMarks, clearClassMarks,
     applyCommentFromDropdown, saveComment,
+    saveEntrySubjectOrder, resetEntrySubjectOrder,
     exportExcel,
   };
 })();

@@ -135,10 +135,12 @@ const UI = (() => {
   // ══════════════════════════════════════════
   //  MARKS ENTRY VIEW
   // ══════════════════════════════════════════
-  function renderEntry(session, students, marksMap) {
+  function renderEntry(session, students, marksMap, subjectOrder) {
     const { cls, term, year } = session;
     const level = CONFIG.classLevel(cls);
-    const subjects = level === 'lower' ? CONFIG.subjects.lower : CONFIG.subjects.upper;
+    const subjects = Array.isArray(subjectOrder) && subjectOrder.length
+      ? subjectOrder
+      : (level === 'lower' ? CONFIG.subjects.lower : CONFIG.subjects.upper);
 
     if (!students.length) {
       main().innerHTML = `
@@ -155,12 +157,12 @@ const UI = (() => {
     let headerCells = '';
     if (level === 'lower') {
       subjects.forEach(s => {
-        headerCells += `<th>${s}_MID</th><th>${s}_END</th>`;
+        headerCells += `<th class="subject-col" draggable="true" data-subject="${s}">${s}_MID</th><th class="subject-col" draggable="true" data-subject="${s}">${s}_END</th>`;
       });
       headerCells += `<th>TOTAL_MID</th><th>TOTAL_END</th><th>POSITION</th>`;
     } else {
       subjects.forEach(s => {
-        headerCells += `<th>${s}_MID</th><th>${s}_MID_AGG</th><th>${s}_END</th><th>${s}_END_AGG</th>`;
+        headerCells += `<th class="subject-col" draggable="true" data-subject="${s}">${s}_MID</th><th>${s}_MID_AGG</th><th class="subject-col" draggable="true" data-subject="${s}">${s}_END</th><th>${s}_END_AGG</th>`;
       });
       headerCells += `<th>TOTAL_AGG_MID</th><th>TOTAL_AGG_END</th><th>DIV_MID</th><th>DIV_END</th>`;
     }
@@ -180,12 +182,13 @@ const UI = (() => {
             <span class="text-muted"> — Term ${term}, ${year} &nbsp;|&nbsp; ${students.length} students</span>
           </div>
           <div class="toolbar-right">
+            <button class="btn btn-secondary btn-sm" onclick="App.resetEntrySubjectOrder()" title="Restore the default subject order">↺ Reset Order</button>
             <button class="btn btn-secondary btn-sm" onclick="App.clearClassMarks()" title="Clear all marks for this class/term">🗑 Clear All</button>
             <button class="btn btn-success btn-sm" onclick="App.saveAllMarks()">💾 Save All</button>
             <button class="btn btn-primary btn-sm" onclick="App.goTo('results')">View Results →</button>
           </div>
         </div>
-        <p class="entry-note">Marks are auto-calculated as you type. Orange left border = unsaved row.</p>
+        <p class="entry-note">Marks are auto-calculated as you type. Drag the subject headers to reorder the entry columns. Orange left border = unsaved row.</p>
         <div class="marks-wrap">
           <table class="marks-table" id="marks-table">
             <thead>
@@ -202,6 +205,7 @@ const UI = (() => {
         </div>
       </div>
     `;
+    bindEntryColumnReorder(subjects);
   }
 
   function buildEntryRow(student, index, marks, level, subjects) {
@@ -262,6 +266,52 @@ const UI = (() => {
         ${cells}
       </tr>
     `;
+  }
+
+  function bindEntryColumnReorder(subjects) {
+    const headers = Array.from(document.querySelectorAll('#marks-table th.subject-col'));
+    if (!headers.length) return;
+
+    let draggedSubject = null;
+
+    headers.forEach(header => {
+      header.addEventListener('dragstart', (event) => {
+        draggedSubject = header.dataset.subject || null;
+        header.classList.add('dragging');
+        if (event.dataTransfer) {
+          event.dataTransfer.effectAllowed = 'move';
+          event.dataTransfer.setData('text/plain', draggedSubject || '');
+        }
+      });
+
+      header.addEventListener('dragend', () => {
+        header.classList.remove('dragging');
+        document.querySelectorAll('#marks-table th.subject-col').forEach(el => el.classList.remove('drag-over'));
+      });
+
+      header.addEventListener('dragover', (event) => {
+        event.preventDefault();
+        header.classList.add('drag-over');
+      });
+
+      header.addEventListener('dragleave', () => {
+        header.classList.remove('drag-over');
+      });
+
+      header.addEventListener('drop', (event) => {
+        event.preventDefault();
+        header.classList.remove('drag-over');
+
+        const targetSubject = header.dataset.subject;
+        const sourceSubject = draggedSubject || (event.dataTransfer && event.dataTransfer.getData('text/plain'));
+        if (!sourceSubject || !targetSubject || sourceSubject === targetSubject) return;
+
+        const nextOrder = subjects.filter(subject => subject !== sourceSubject);
+        const insertIndex = nextOrder.indexOf(targetSubject);
+        nextOrder.splice(insertIndex, 0, sourceSubject);
+        App.saveEntrySubjectOrder(nextOrder);
+      });
+    });
   }
 
   // ── Update calc cells in a row ────────────

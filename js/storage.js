@@ -9,6 +9,7 @@ const Storage = (() => {
     roster:    (cls) => `acadex_roster_${cls}`,
     marks:     (cls, term, year) => `acadex_marks_${cls}_T${term}_${year}`,
     comments:  (cls, term, year) => `acadex_comments_${cls}_T${term}_${year}`,
+    subjectOrder: (cls, term, year) => `acadex_subject_order_${cls}_T${term}_${year}`,
   };
 
   // ── Helpers ──────────────────────────────
@@ -84,6 +85,17 @@ const Storage = (() => {
     return all[studentId] || {};
   }
 
+  // ── Entry subject order ──────────────────
+  function saveEntrySubjectOrder(cls, term, year, order) {
+    return save(KEYS.subjectOrder(cls, term, year), order);
+  }
+  function loadEntrySubjectOrder(cls, term, year) {
+    return load(KEYS.subjectOrder(cls, term, year), null);
+  }
+  function clearEntrySubjectOrder(cls, term, year) {
+    remove(KEYS.subjectOrder(cls, term, year));
+  }
+
   // ── Comments ─────────────────────────────
   // comments stored as { [studentId]: { teacher: '...', ht: '...' } }
   function loadAllComments(cls, term, year) {
@@ -129,6 +141,7 @@ const Storage = (() => {
     saveSession, loadSession, clearSession,
     saveRoster, loadRoster, addStudent, removeStudent, renameStudent, reorderRoster,
     loadAllMarks, saveStudentMarks, saveAllMarks, loadStudentMarks,
+    saveEntrySubjectOrder, loadEntrySubjectOrder, clearEntrySubjectOrder,
     loadAllComments, saveStudentComment, saveAllComments,
     buildClassSnapshot, dumpAll,
   };
