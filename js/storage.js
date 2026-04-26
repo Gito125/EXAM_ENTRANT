@@ -6,6 +6,7 @@ const Storage = (() => {
 
   const KEYS = {
     session:   'acadex_session',
+    sessionHistory: 'acadex_session_history',
     roster:    (cls) => `acadex_roster_${cls}`,
     marks:     (cls, term, year) => `acadex_marks_${cls}_T${term}_${year}`,
     comments:  (cls, term, year) => `acadex_comments_${cls}_T${term}_${year}`,
@@ -31,6 +32,68 @@ const Storage = (() => {
   function saveSession(session) { return save(KEYS.session, session); }
   function loadSession() { return load(KEYS.session); }
   function clearSession() { remove(KEYS.session); }
+
+  // ── Session history ─────────────────────
+  function makeSessionHistoryId(session) {
+    return `${session.cls}_T${session.term}_${session.year}`;
+  }
+
+  function loadSessionHistory() {
+    const history = load(KEYS.sessionHistory, []);
+    if (!Array.isArray(history)) return [];
+
+    return history
+      .filter(item => item && item.id && item.cls && item.term && item.year)
+      .sort((a, b) => {
+        const aTime = Number(a.lastOpenedAt || a.lastSavedAt || a.createdAt || 0);
+        const bTime = Number(b.lastOpenedAt || b.lastSavedAt || b.createdAt || 0);
+        return bTime - aTime;
+      });
+  }
+
+  function saveSessionHistory(history) {
+    return save(KEYS.sessionHistory, history);
+  }
+
+  function upsertSessionHistory(session, reason = 'saved') {
+    if (!session || !session.cls || !session.term || !session.year || !session.school) return null;
+
+    const now = Date.now();
+    const id = makeSessionHistoryId(session);
+    const history = loadSessionHistory();
+    const idx = history.findIndex(item => item.id === id);
+
+    const baseItem = {
+      id,
+      school: String(session.school).trim(),
+      cls: session.cls,
+      term: Number(session.term),
+      year: Number(session.year),
+      createdAt: now,
+      lastSavedAt: now,
+      lastOpenedAt: now,
+    };
+
+    if (idx >= 0) {
+      const prev = history[idx];
+      history[idx] = {
+        ...prev,
+        ...baseItem,
+        createdAt: prev.createdAt || now,
+        lastSavedAt: reason === 'opened' ? (prev.lastSavedAt || now) : now,
+        lastOpenedAt: now,
+      };
+    } else {
+      history.push(baseItem);
+    }
+
+    saveSessionHistory(history);
+    return id;
+  }
+
+  function getSessionHistoryItem(id) {
+    return loadSessionHistory().find(item => item.id === id) || null;
+  }
 
   // ── Roster ───────────────────────────────
   function saveRoster(cls, students) {
@@ -139,6 +202,7 @@ const Storage = (() => {
 
   return {
     saveSession, loadSession, clearSession,
+    loadSessionHistory, upsertSessionHistory, getSessionHistoryItem,
     saveRoster, loadRoster, addStudent, removeStudent, renameStudent, reorderRoster,
     loadAllMarks, saveStudentMarks, saveAllMarks, loadStudentMarks,
     saveEntrySubjectOrder, loadEntrySubjectOrder, clearEntrySubjectOrder,

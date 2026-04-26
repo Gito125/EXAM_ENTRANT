@@ -41,8 +41,9 @@ const UI = (() => {
   // ══════════════════════════════════════════
   //  SETUP VIEW
   // ══════════════════════════════════════════
-  function renderSetup(session = {}) {
+  function renderSetup(session = {}, history = []) {
     session = session || {};
+    const recent = Array.isArray(history) ? history.slice(0, 6) : [];
 
     const termOpts = CONFIG.terms.map(t =>
       `<option value="${t}" ${session.term == t ? 'selected' : ''}>Term ${t}</option>`
@@ -51,8 +52,20 @@ const UI = (() => {
       `<option value="${c}" ${session.cls === c ? 'selected' : ''}>${c}</option>`
     ).join('');
 
+    const recentRows = recent.map(item => `
+      <tr>
+        <td style="white-space:nowrap;font-weight:600">${item.cls}</td>
+        <td>Term ${item.term} • ${item.year}</td>
+        <td>${escHtml(item.school)}</td>
+        <td style="white-space:nowrap">${formatTime(item.lastOpenedAt || item.lastSavedAt || item.createdAt)}</td>
+        <td style="text-align:right">
+          <button class="btn btn-xs btn-secondary" onclick="App.loadHistorySession('${item.id}')">Load</button>
+        </td>
+      </tr>
+    `).join('');
+
     main().innerHTML = `
-      <div class="card" style="max-width:560px;margin:0 auto">
+      <div class="card setup-card">
         <div class="card-title">Session Setup</div>
         <div class="form-grid">
           <div class="form-group" style="grid-column:1/-1">
@@ -76,8 +89,94 @@ const UI = (() => {
         </div>
         <div class="form-actions">
           <button class="btn btn-primary" onclick="App.saveSession()">Save & Continue →</button>
+          <button class="btn btn-secondary" onclick="App.goTo('history')">View Full History</button>
         </div>
       </div>
+
+      ${recent.length ? `
+      <div class="card mt-2">
+        <div class="section-title">Recent Sessions</div>
+        <div class="marks-wrap">
+          <table class="roster-table setup-history-table">
+            <thead>
+              <tr><th>Class</th><th>Term / Year</th><th>School</th><th>Last Opened</th><th></th></tr>
+            </thead>
+            <tbody>${recentRows}</tbody>
+          </table>
+        </div>
+      </div>
+      ` : ''}
+    `;
+  }
+
+  function renderHistory(history = [], session = null) {
+    if (!Array.isArray(history) || !history.length) {
+      main().innerHTML = `
+        <div class="card">
+          <div class="section-title">Session History</div>
+          <div class="empty-state">
+            <div class="empty-icon">🕘</div>
+            <h3>No history yet</h3>
+            <p>Saved setup sessions will appear here for quick reuse.</p>
+            <button class="btn btn-primary" onclick="App.goTo('setup')">Back to Setup</button>
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    const groups = history.reduce((acc, item) => {
+      const key = item.cls;
+      if (!acc[key]) acc[key] = [];
+      acc[key].push(item);
+      return acc;
+    }, {});
+
+    const classOrder = Object.keys(groups).sort((a, b) => Number(a.slice(1)) - Number(b.slice(1)));
+
+    const sections = classOrder.map(cls => {
+      const rows = groups[cls].map(item => `
+        <tr>
+          <td style="white-space:nowrap;font-weight:600">Term ${item.term}</td>
+          <td style="white-space:nowrap">${item.year}</td>
+          <td>${escHtml(item.school)}</td>
+          <td style="white-space:nowrap">${formatTime(item.lastOpenedAt || item.lastSavedAt || item.createdAt)}</td>
+          <td style="text-align:right">
+            <button class="btn btn-xs btn-secondary" onclick="App.loadHistorySession('${item.id}')">Load into Setup</button>
+          </td>
+        </tr>
+      `).join('');
+
+      return `
+        <div class="card mt-2">
+          <div class="section-title">${cls} Sessions</div>
+          <div class="marks-wrap">
+            <table class="roster-table history-table">
+              <thead>
+                <tr><th>Term</th><th>Year</th><th>School</th><th>Last Opened</th><th></th></tr>
+              </thead>
+              <tbody>${rows}</tbody>
+            </table>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    const currentPill = session
+      ? `<span class="badge badge-pos" style="margin-left:.5rem">Current: ${session.cls} T${session.term} ${session.year}</span>`
+      : '';
+
+    main().innerHTML = `
+      <div class="card">
+        <div class="table-toolbar">
+          <div><strong>Session History</strong>${currentPill}</div>
+          <div class="toolbar-right">
+            <button class="btn btn-secondary btn-sm" onclick="App.goTo('setup')">Back to Setup</button>
+          </div>
+        </div>
+        <p class="entry-note">Select any saved context to prefill setup and continue working from prior classes.</p>
+      </div>
+      ${sections}
     `;
   }
 
@@ -599,11 +698,42 @@ const UI = (() => {
     return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 
+  function formatTime(ts) {
+    if (!ts) return '—';
+    const d = new Date(ts);
+    if (Number.isNaN(d.getTime())) return '—';
+    return d.toLocaleString();
+  }
+
+  function bindMobileNav() {
+    const menuBtn = document.getElementById('nav-menu-btn');
+    const header = document.querySelector('.app-header');
+    const nav = document.querySelector('.app-nav');
+    if (!menuBtn || !header || !nav) return;
+
+    const closeMenu = () => {
+      header.classList.remove('menu-open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    };
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = header.classList.toggle('menu-open');
+      menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    nav.querySelectorAll('.nav-btn').forEach(btn => {
+      btn.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) closeMenu();
+    });
+  }
+
   return {
     toast, renderContextBar, setNavActive,
     renderSetup, renderRoster, renderEntry, buildEntryRow,
     updateCalcCells, updatePositions, markRowDirty, markRowSaved,
-    renderResults, escHtml,
+    renderResults, renderHistory, escHtml, bindMobileNav,
   };
 })();
-    bindEntryRowReorder();

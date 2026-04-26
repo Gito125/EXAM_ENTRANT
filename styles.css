@@ -52,6 +52,17 @@ html, body { height: 100%; font-family: system-ui, -apple-system, sans-serif; ba
 .header-brand { display: flex; align-items: baseline; gap: 10px; }
 .brand-logo { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; }
 .brand-sub { font-size: 12px; color: rgba(255,255,255,.55); }
+.nav-menu-btn {
+  display: none;
+  border: 1px solid rgba(255,255,255,.22);
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  border-radius: 8px;
+  width: 38px;
+  height: 34px;
+  font-size: 18px;
+  cursor: pointer;
+}
 .app-nav { display: flex; gap: 4px; }
 .nav-btn {
   background: none; border: none; color: rgba(255,255,255,.65);
@@ -85,6 +96,7 @@ html, body { height: 100%; font-family: system-ui, -apple-system, sans-serif; ba
   border-radius: var(--radius-lg); box-shadow: var(--shadow);
   padding: 1.5rem;
 }
+.setup-card { max-width: 720px; margin: 0 auto; }
 .card + .card { margin-top: 1rem; }
 .card-title { font-size: 15px; font-weight: 600; margin-bottom: 1.25rem; color: var(--text-1); }
 
@@ -251,3 +263,117 @@ select { cursor: pointer; }
 .inline-block { display: inline-block; }
 .w-full { width: 100%; }
 .entry-note { font-size: 11.5px; color: var(--text-3); font-style: italic; margin-top: .35rem; }
+
+/* ── RESPONSIVE ─────────────────────────── */
+@media (max-width: 1024px) {
+  .app-main { padding: 1rem; }
+  .card { padding: 1rem; }
+  .marks-table td.name-cell,
+  .marks-table thead tr:first-child th:nth-child(2) {
+    min-width: 150px;
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 900px) {
+  .app-header {
+    height: auto;
+    min-height: 52px;
+    padding: .5rem .9rem;
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+  .header-brand { min-width: 0; }
+  .brand-sub { display: none; }
+  .nav-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+  }
+  .app-nav {
+    display: none;
+    width: 100%;
+    order: 3;
+    padding: .35rem 0 .1rem;
+    border-top: 1px solid rgba(255,255,255,.15);
+    flex-direction: column;
+    gap: 6px;
+  }
+  .app-header.menu-open .app-nav { display: flex; }
+  .nav-btn {
+    width: 100%;
+    text-align: left;
+    padding: 9px 12px;
+  }
+  .context-bar {
+    padding: .65rem .9rem;
+    gap: .45rem .75rem;
+  }
+  .context-bar .ctx-change {
+    margin-left: 0;
+    width: 100%;
+    padding-top: .3rem;
+  }
+  .form-grid { grid-template-columns: 1fr; }
+  .form-group[style*="grid-column:1/-1"] { grid-column: 1; }
+  .table-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .table-toolbar .toolbar-right {
+    margin-left: 0;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .roster-input-row {
+    flex-direction: column;
+  }
+  .roster-count {
+    margin-left: 0;
+    width: 100%;
+  }
+  .marks-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .toast {
+    right: .75rem;
+    left: .75rem;
+    bottom: .75rem;
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  html, body { font-size: 13px; }
+  .app-main { padding: .75rem; }
+  .card { padding: .85rem; }
+  .form-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .marks-table td,
+  .marks-table thead tr:first-child th {
+    padding: 5px 6px;
+    font-size: 11.5px;
+  }
+  .marks-table td:first-child,
+  .marks-table thead tr:first-child th:first-child {
+    min-width: 36px;
+    left: 0;
+  }
+  .marks-table td.name-cell,
+  .marks-table thead tr:first-child th:nth-child(2) {
+    min-width: 130px;
+    max-width: 130px;
+    left: 36px;
+  }
+  .mark-input {
+    width: 52px;
+    font-size: 12px;
+  }
+}

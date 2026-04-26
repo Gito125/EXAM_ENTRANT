@@ -17,6 +17,7 @@ const App = (() => {
   // ══════════════════════════════════════════
   async function init() {
     await Comments.loadBanks();
+    UI.bindMobileNav();
 
     // Wire nav
     document.querySelectorAll('.nav-btn').forEach(btn => {
@@ -26,6 +27,7 @@ const App = (() => {
     // Restore session
     session = Storage.loadSession();
     if (session) {
+      Storage.upsertSessionHistory(session, 'opened');
       marksBuffer = Storage.loadAllMarks(session.cls, session.term, session.year);
       goTo('entry');
     } else {
@@ -42,7 +44,7 @@ const App = (() => {
     UI.renderContextBar(session);
 
     if (view === 'setup') {
-      UI.renderSetup(session);
+      UI.renderSetup(session, Storage.loadSessionHistory());
     } else if (view === 'roster') {
       if (!session) { UI.toast('Please complete setup first.', 'error'); goTo('setup'); return; }
       const roster = Storage.loadRoster(session.cls);
@@ -55,6 +57,8 @@ const App = (() => {
       if (!session) { UI.toast('Please complete setup first.', 'error'); goTo('setup'); return; }
       const students = Storage.buildClassSnapshot(session.cls, session.term, session.year);
       UI.renderResults(session, students);
+    } else if (view === 'history') {
+      UI.renderHistory(Storage.loadSessionHistory(), session);
     }
   }
 
@@ -143,9 +147,31 @@ const App = (() => {
 
     session = { school, cls, term, year };
     Storage.saveSession(session);
+    Storage.upsertSessionHistory(session, 'saved');
     marksBuffer = Storage.loadAllMarks(cls, term, year);
     UI.toast('Session saved!', 'success');
     goTo('roster');
+  }
+
+  function loadHistorySession(historyId) {
+    const item = Storage.getSessionHistoryItem(historyId);
+    if (!item) {
+      UI.toast('Selected history record was not found.', 'error');
+      return;
+    }
+
+    session = {
+      school: item.school,
+      cls: item.cls,
+      term: Number(item.term),
+      year: Number(item.year),
+    };
+
+    Storage.saveSession(session);
+    Storage.upsertSessionHistory(session, 'opened');
+    marksBuffer = Storage.loadAllMarks(session.cls, session.term, session.year);
+    goTo('setup');
+    UI.toast(`Loaded ${session.cls} Term ${session.term} ${session.year}.`, 'success');
   }
 
   // ══════════════════════════════════════════
@@ -354,6 +380,7 @@ const App = (() => {
   return {
     init, goTo,
     saveSession,
+    loadHistorySession,
     addStudent, removeStudent, renameStudent, exportRoster, importRoster,
     onMarkInput, validateInput, saveStudentMarks, saveAllMarks, clearClassMarks,
     applyCommentFromDropdown, saveComment,
