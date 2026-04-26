@@ -144,6 +144,10 @@ select { cursor: pointer; }
 .marks-table thead tr:first-child th.subject-col { cursor: grab; user-select: none; }
 .marks-table thead tr:first-child th.subject-col.dragging { opacity: .55; }
 .marks-table thead tr:first-child th.subject-col.drag-over { background: #334155; }
+.marks-table td.row-no { cursor: grab; user-select: none; font-weight: 700; color: var(--text-2); background: var(--surface); }
+.marks-table td.row-no.dragging-row { opacity: .55; }
+.marks-table tr.row-dragging td { background: #fbfdff; }
+.marks-table tr.row-drop-target td { background: #f1f5f9; }
 .marks-table thead tr:first-child th:first-child,
 .marks-table thead tr:first-child th:nth-child(2) { text-align: left; position: sticky; background: #1e293b; z-index: 3; }
 .marks-table thead tr:first-child th:first-child { left: 0; min-width: 44px; }

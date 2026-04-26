@@ -77,6 +77,8 @@ The app is organized as a small front-end module system:
 - `storage.js` reads and writes session data, roster data, marks, and comments.
 - `logic.js` performs mark parsing, totals, grades, divisions, and ranking.
 - `comments.js` loads comment banks and provides suggestions based on performance tiers.
+
+For P1 to P3, comment tiers are resolved from `TOTAL_END` mark bands defined in `comments_p1p3.json` (`min_total` and `max_total`).
 - `ui.js` renders the views and keeps the interface responsive to input changes.
 - `export.js` builds the Excel workbook using SheetJS.
 

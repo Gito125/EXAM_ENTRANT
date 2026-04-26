@@ -206,6 +206,7 @@ const UI = (() => {
       </div>
     `;
     bindEntryColumnReorder(subjects);
+    bindEntryRowReorder();
   }
 
   function buildEntryRow(student, index, marks, level, subjects) {
@@ -260,8 +261,8 @@ const UI = (() => {
     `;
 
     return `
-      <tr id="row-${student.id}" data-sid="${student.id}">
-        <td>${index + 1}</td>
+      <tr id="row-${student.id}" data-sid="${student.id}" data-rowid="${student.id}">
+        <td class="row-no" draggable="true" title="Drag to reorder">${index + 1}</td>
         <td class="name-cell">${student.name}</td>
         ${cells}
       </tr>
@@ -310,6 +311,57 @@ const UI = (() => {
         const insertIndex = nextOrder.indexOf(targetSubject);
         nextOrder.splice(insertIndex, 0, sourceSubject);
         App.saveEntrySubjectOrder(nextOrder);
+      });
+    });
+  }
+
+  function bindEntryRowReorder() {
+    const rowHandles = Array.from(document.querySelectorAll('#marks-table td.row-no'));
+    if (!rowHandles.length) return;
+
+    let draggedRowId = null;
+
+    rowHandles.forEach(handle => {
+      handle.addEventListener('dragstart', (event) => {
+        const row = handle.closest('tr');
+        draggedRowId = row?.dataset.rowid || null;
+        handle.classList.add('dragging-row');
+        if (row) row.classList.add('row-dragging');
+        if (event.dataTransfer) {
+          event.dataTransfer.effectAllowed = 'move';
+          event.dataTransfer.setData('text/plain', draggedRowId || '');
+        }
+      });
+
+      handle.addEventListener('dragend', () => {
+        handle.classList.remove('dragging-row');
+        document.querySelectorAll('#marks-table tr').forEach(row => row.classList.remove('row-dragging'));
+        document.querySelectorAll('#marks-table tr').forEach(row => row.classList.remove('row-drop-target'));
+      });
+
+      const row = handle.closest('tr');
+      if (!row) return;
+
+      row.addEventListener('dragover', (event) => {
+        event.preventDefault();
+        row.classList.add('row-drop-target');
+      });
+
+      row.addEventListener('dragleave', (event) => {
+        if (!row.contains(event.relatedTarget)) {
+          row.classList.remove('row-drop-target');
+        }
+      });
+
+      row.addEventListener('drop', (event) => {
+        event.preventDefault();
+        row.classList.remove('row-drop-target');
+
+        const targetRowId = row.dataset.rowid || null;
+        const sourceRowId = draggedRowId || (event.dataTransfer && event.dataTransfer.getData('text/plain'));
+        if (!sourceRowId || !targetRowId || sourceRowId === targetRowId) return;
+
+        App.reorderEntryStudents(sourceRowId, targetRowId);
       });
     });
   }
@@ -466,7 +518,7 @@ const UI = (() => {
     const commentsRows = students.map(s => {
       const cmt = s.comments || {};
       const tier = level === 'lower'
-        ? Comments.getLowerTier(s.calc?.TOTAL_END, subjects.length * 100)
+        ? Comments.getLowerTier(s.calc?.TOTAL_END)
         : Comments.getUpperTier(s.calc?.DIV_END);
 
       const teacherSuggest = tier ? Comments.suggest(level, 'teacher', tier, s.id) : '';
@@ -554,3 +606,4 @@ const UI = (() => {
     renderResults, escHtml,
   };
 })();
+    bindEntryRowReorder();

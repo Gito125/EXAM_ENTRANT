@@ -4,7 +4,7 @@
 
 const CONFIG = {
 
-  classes: ['P1','P2','P3','P4','P5','P6'],
+  classes: ['P1','P2','P3','P4','P5','P6', 'P7'],
 
   classLevel: (cls) => parseInt(cls.replace('P','')) <= 3 ? 'lower' : 'upper',
 

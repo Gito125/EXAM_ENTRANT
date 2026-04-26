@@ -1,11 +1,11 @@
 {
   "lower": {
     "tiers": [
-      { "label": "Outstanding",  "min_pct": 85, "max_pct": 100 },
-      { "label": "Excellent",    "min_pct": 70, "max_pct": 84  },
-      { "label": "Good",         "min_pct": 55, "max_pct": 69  },
-      { "label": "Average",      "min_pct": 40, "max_pct": 54  },
-      { "label": "NeedsSupport", "min_pct": 0,  "max_pct": 39  }
+      { "label": "Outstanding",  "min_total": 450, "max_total": 500, "min_pct": 90, "max_pct": 100 },
+      { "label": "Excellent",    "min_total": 401, "max_total": 449, "min_pct": 70, "max_pct": 89  },
+      { "label": "Good",         "min_total": 350, "max_total": 400, "min_pct": 55, "max_pct": 69  },
+      { "label": "Average",      "min_total": 250, "max_total": 349, "min_pct": 40, "max_pct": 54  },
+      { "label": "NeedsSupport", "min_total": 0,   "max_total": 249, "min_pct": 0,  "max_pct": 39  }
     ],
     "teacher": {
       "Outstanding": [

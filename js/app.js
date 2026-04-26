@@ -96,6 +96,22 @@ const App = (() => {
     if (currentView === 'entry') renderEntryView();
   }
 
+  function reorderEntryStudents(fromStudentId, toStudentId) {
+    if (!session || fromStudentId === toStudentId) return;
+
+    const roster = Storage.loadRoster(session.cls);
+    const fromIndex = roster.findIndex(student => student.id === fromStudentId);
+    const toIndex = roster.findIndex(student => student.id === toStudentId);
+
+    if (fromIndex < 0 || toIndex < 0 || fromIndex === toIndex) return;
+
+    const adjustedToIndex = fromIndex < toIndex ? toIndex - 1 : toIndex;
+    Storage.reorderRoster(session.cls, fromIndex, adjustedToIndex);
+    if (currentView === 'entry') renderEntryView();
+    if (currentView === 'roster') UI.renderRoster(session, Storage.loadRoster(session.cls));
+    UI.toast('Student order updated.', 'success');
+  }
+
   function resetEntrySubjectOrder() {
     if (!session) return;
     entrySubjectOrder = getDefaultEntrySubjectOrder();
@@ -341,7 +357,7 @@ const App = (() => {
     addStudent, removeStudent, renameStudent, exportRoster, importRoster,
     onMarkInput, validateInput, saveStudentMarks, saveAllMarks, clearClassMarks,
     applyCommentFromDropdown, saveComment,
-    saveEntrySubjectOrder, resetEntrySubjectOrder,
+    saveEntrySubjectOrder, resetEntrySubjectOrder, reorderEntryStudents,
     exportExcel,
   };
 })();

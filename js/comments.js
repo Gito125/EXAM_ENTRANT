@@ -22,12 +22,24 @@ const Comments = (() => {
   }
 
   // ── Determine tier for lower (P1–P3) ─────
-  function getLowerTier(totalEnd, maxPossible = 500) {
+  function getLowerTier(totalEnd) {
     if (totalEnd === null || totalEnd === undefined) return null;
-    const pct = (totalEnd / maxPossible) * 100;
     if (!lowerBank) return null;
+
+    // Primary mode: explicit TOTAL_END bands from JSON.
     for (const tier of lowerBank.tiers) {
-      if (pct >= tier.min_pct && pct <= tier.max_pct) return tier.label;
+      if (tier.min_total !== undefined && tier.max_total !== undefined) {
+        if (totalEnd >= tier.min_total && totalEnd <= tier.max_total) return tier.label;
+      }
+    }
+
+    // Fallback mode: legacy percentage bands.
+    const maxPossible = lowerMaxEnd('lower');
+    const pct = (totalEnd / maxPossible) * 100;
+    for (const tier of lowerBank.tiers) {
+      if (tier.min_pct !== undefined && tier.max_pct !== undefined && pct >= tier.min_pct && pct <= tier.max_pct) {
+        return tier.label;
+      }
     }
     return 'NeedsSupport';
   }
