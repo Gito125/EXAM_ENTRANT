@@ -18,7 +18,17 @@
         "What a remarkable term! Your focus, discipline and enthusiasm have produced results to celebrate. Bravo!",
         "Excellence personified! You have set the bar high for yourself and your peers. Never stop pushing forward.",
         "Magnificent work this term! Your scores reflect a deep understanding and genuine passion for learning.",
-        "You have left us speechless with your performance! This is what happens when talent meets hard work."
+        "You have left us speechless with your performance! This is what happens when talent meets hard work.",
+        "An exemplary term! Your neatness, handwriting, and mastery of all learning areas are commendable.",
+        "Splendid achievement! You participate actively in class and complete all exercises with great accuracy.",
+        "Top-class performance! You show wonderful leadership qualities and a mature attitude toward your studies.",
+        "Outstanding mastery across all learning areas! Keep feeding your curiosity with daily reading and practice.",
+        "Remarkable consistency throughout the term! You have proven that dedication brings wonderful rewards.",
+        "Exceptional results! Your reading comprehension, numeracy, and creative skills are well ahead of the curve.",
+        "A star pupil with an unmatched drive to excel! Continue setting a high standard for your classmates.",
+        "Wonderfully done! You grasp new concepts swiftly and present your classwork with great care and precision.",
+        "Tremendous achievement! Your enthusiasm for learning makes teaching you a real joy. Keep shining!",
+        "Brilliant, confident, and hardworking! You have laid a solid academic foundation for future success."
       ],
       "Excellent": [
         "Excellent work this term! You have shown great understanding and real effort across all subjects. Keep it up!",
@@ -30,7 +40,17 @@
         "Well done on a great term! You tackled every subject with energy and enthusiasm. Maintain this pace!",
         "Your results this term show real ability and determination. Keep pushing — the top is within your reach!",
         "Excellent showing this term. With continued focus you will achieve even greater heights. We believe in you!",
-        "A very good term overall! Stay consistent, keep reading, and you will continue to grow from strength to strength."
+        "A very good term overall! Stay consistent, keep reading, and you will continue to grow from strength to strength.",
+        "High quality work throughout the term! Focus on perfecting your spelling and neatness to secure full marks.",
+        "Very commendable effort! You show keen interest during lessons and submit neat, well-organized work.",
+        "A wonderful performance! With regular storybook reading at home, your language skills will climb even higher.",
+        "You have maintained an admirable standard all term. Keep practising your numbers and spellings during holidays.",
+        "Great mastery of basic concepts! A little extra attention to detail will elevate your work to perfection.",
+        "Consistently attentive, polite, and hardworking! You have achieved results worthy of high praise.",
+        "Strong showing across all subjects! Keep challenging yourself with extra reading and problem-solving exercises.",
+        "Very good progress! You grasp classroom instructions quickly and work diligently on every assignment.",
+        "Commendable performance! Continue reviewing your daily notes and participating enthusiastically in class.",
+        "Impressive effort and solid understanding shown! Keep your focus sharp and aim for the top spot next term."
       ],
       "Good": [
         "A good effort this term! You are on the right track. With more focus and practice, even better results await you.",
@@ -42,7 +62,17 @@
         "Good results — you are moving in the right direction. Do not stop here; there is so much more you can achieve!",
         "You have demonstrated real ability this term. Consistent revision and active class participation will take you even further.",
         "Well done for a decent term! Believe in yourself and put in the daily work — your future results will reflect it.",
-        "You tried hard and it shows. Keep practising at home, ask questions in class, and watch yourself grow!"
+        "You tried hard and it shows. Keep practising at home, ask questions in class, and watch yourself grow!",
+        "Good progress made! Dedicate more time to daily reading and handwriting practice to unlock your full potential.",
+        "A steady performance! Work closely with your teachers in subjects where marks slipped to boost your average.",
+        "You have a good grasp of the basics. Practice more calculations and spelling drills at home during the holidays.",
+        "Encouraging results this term! Focus on completing all class activities promptly without getting distracted.",
+        "Good foundation demonstrated. With more active participation in classroom discussions, your confidence will soar.",
+        "Satisfactory achievement this term. Make a habit of revising each day's lesson every evening at home.",
+        "Fairly strong performance! Keep sharpening your reading speed and comprehension for even better outcomes.",
+        "You are capable of higher marks. Pay closer attention to teacher corrections and improve your work layout.",
+        "Positive growth observed this term! A little extra dedication to your revision timetable will yield great rewards.",
+        "Good performance overall! Believe in your capabilities and strive to turn every good mark into an excellent one."
       ],
       "Average": [
         "You made an honest attempt this term. With more regular study and practice, you can significantly improve your marks.",
@@ -54,7 +84,17 @@
         "This term was a stepping stone. Use the holiday to rest, revise, and come back stronger and more determined next term.",
         "Do not be discouraged. Progress takes time. Stay close to your books, be attentive in class, and improvement will come.",
         "You tried and that is the first step. Now let us build on that effort with more focus and a stronger study routine.",
-        "Fair results this term. With dedication and the right support, you have everything you need to excel going forward."
+        "Fair results this term. With dedication and the right support, you have everything you need to excel going forward.",
+        "An average term. Avoid unnecessary classroom distractions and cultivate the habit of asking when you do not understand.",
+        "Fair performance. Daily practice with reading, writing, and simple sums will help you gain confidence.",
+        "You have the ability to do much better. Spend less time playing and more time going through your class exercise books.",
+        "Modest results this term. Work on your handwriting legibility and ensure every homework assignment is completed on time.",
+        "You show glimpses of good understanding. Strengthen your study habits at home to achieve more consistent marks.",
+        "Fair effort shown. Seek guidance from your teachers whenever a concept seems confusing instead of keeping quiet.",
+        "There is untapped potential in you. Let us see greater concentration, punctuality, and regular revision next term.",
+        "You can achieve far better grades with steady effort. Make reading storybooks a daily habit this holiday.",
+        "A moderate performance. Increase your revision hours and practice writing neat, complete sentences in your work.",
+        "You can climb higher! Come back next term with a determined spirit, full attention in class, and daily home study."
       ],
       "NeedsSupport": [
         "This term was a tough one, but do not give up! With extra support and daily practice, you will see real improvement.",
@@ -66,7 +106,17 @@
         "Learning is a journey and you are still on yours. With more practice and attention in class, your marks will rise.",
         "You are capable of better and we know it. Let us use every opportunity next term to close the gap and build confidence.",
         "These results are a signal to work harder and smarter. You have the ability — now let us build the habit of daily study.",
-        "Do not be defined by one term. Rest well, reflect, and return next term with a renewed drive to do better."
+        "Do not be defined by one term. Rest well, reflect, and return next term with a renewed drive to do better.",
+        "Extra attention is required in reading, writing, and basic arithmetic. Parents are requested to assist with home study.",
+        "Do not despair. Regular attendance, attentive listening in class, and remedial support will yield steady progress.",
+        "You need to put in substantial effort next term. Focus on mastering basic letter sounds, spelling, and number work.",
+        "More time must be invested in study. Practice reading aloud daily and complete all remedial exercises given.",
+        "We need to work closely together to help you catch up. Stay focused during lessons and never hesitate to ask for help.",
+        "Your foundation needs strengthening. Use the holiday productively by reviewing simple readers and math exercises.",
+        "Consistent effort is essential. Please minimize absenteeism and ensure all class corrections are done carefully.",
+        "A challenging term, but progress is within reach. With disciplined study habits at home, significant improvement will follow.",
+        "You have the capability to improve. Let us establish a strict revision schedule and focus on one subject at a time.",
+        "Take heart and stay determined! With sustained remedial support and active effort from you, marks will definitely rise."
       ]
     },
     "ht": {
@@ -75,35 +125,60 @@
         "Exemplary results — you are a shining example of what dedication and hard work produce. We are very proud of you!",
         "The school celebrates your brilliant achievement this term. You have demonstrated that excellence is a habit. Well done!",
         "You have made your family and school proud with these exceptional results. Continue to aim for the very highest!",
-        "A stellar performance! You represent the best of what this school stands for. Keep up this outstanding work always."
+        "A stellar performance! You represent the best of what this school stands for. Keep up this outstanding work always.",
+        "Exceptional academic accomplishment! Your discipline, respect, and brilliance set a benchmark for the entire school.",
+        "Hearty congratulations on a superb report! Continue nurturing your talents with diligence, humility, and hard work.",
+        "A glorious performance that deserves the highest commendation. The school management is exceedingly proud of you.",
+        "Outstanding work! Maintain this wonderful momentum and let your love for reading and learning continue to grow.",
+        "A role model in both character and academics! We encourage you to keep aiming for the stars in all future terms."
       ],
       "Excellent": [
         "Very well done! You have shown great commitment and ability this term. The school is proud of your excellent results.",
         "A fine performance this term. Keep working with this same energy and dedication — success is yours to claim!",
         "Excellent results! You are growing into an outstanding learner. The school is confident in your continued success.",
         "You have done the school proud this term. Maintain this level of commitment and you will go very far in life.",
-        "Great work! Your results reflect a focused and hardworking student. Continue to develop and never stop improving."
+        "Great work! Your results reflect a focused and hardworking student. Continue to develop and never stop improving.",
+        "Commendable performance! With just a little extra push, you will effortlessly reach the highest echelon of excellence.",
+        "The school appreciates your hard work and disciplined attitude. Continue striving for perfection in every subject.",
+        "Splendid progress shown this term! Keep up this enthusiastic spirit and maintain your dedication during the holidays.",
+        "Very impressive achievement! You have proven your academic strength. Aim for the highest peak next term.",
+        "Well done on a glorious report! Continue listening attentively to your teachers and reading widely at home."
       ],
       "Good": [
         "A good term overall. We encourage you to keep pushing harder next term. You have the ability to do even better!",
         "Well done for a solid term. The school believes you can achieve more — stay focused and give it your very best.",
         "Good performance this term. Keep the momentum going and approach next term with even greater determination.",
         "You have shown good effort. Now challenge yourself to go even further. The school supports and believes in you!",
-        "A commendable effort. Keep building on this foundation and you will achieve excellent results in the coming terms."
+        "A commendable effort. Keep building on this foundation and you will achieve excellent results in the coming terms.",
+        "A satisfactory report. With increased personal revision and active class participation, higher marks are assured.",
+        "The school is pleased with your progress. Dedicate quality time to holiday revision to make a bigger leap next term.",
+        "Good effort demonstrated. Strive to turn your good grades into excellent distinctions through sustained hard work.",
+        "You have solid academic potential. Maintain good discipline and focus more on the subjects that challenge you.",
+        "A fair and promising term. Continue working closely with your teachers and aim higher in the upcoming term."
       ],
       "Average": [
         "We encourage you to put in more effort next term. The school is here to support your growth and development.",
         "There is room for improvement and we believe you are capable of it. Keep working hard and do not give up.",
         "With more focus and determination next term, you can achieve much better results. We are rooting for you!",
         "The school urges you to dedicate more time to your studies. Your potential is there — let it show next term.",
-        "Keep working hard. Improvement is possible with consistent effort and the right attitude. We believe in you."
+        "Keep working hard. Improvement is possible with consistent effort and the right attitude. We believe in you.",
+        "Average performance. We advise parents to monitor home study and reading habits closely during the vacation.",
+        "You can achieve much more with greater seriousness. Avoid unnecessary distractions and focus squarely on your books.",
+        "The school expects a stronger effort next term. Engage actively in class, complete all homework, and revise daily.",
+        "Fair results, but you have greater capacity. Make good use of the holidays to strengthen your reading and math skills.",
+        "Do not settle for average. Come back next term with a renewed hunger for academic excellence and higher discipline."
       ],
       "NeedsSupport": [
         "We urge you and your family to work together to improve your performance next term. The school remains supportive.",
         "More effort is needed. Please come to school ready to learn and work hard. We believe in your ability to improve.",
         "The school will continue to offer support. We ask you to come back next term committed and ready to give your best.",
         "Let us use next term as a fresh start. With family support and personal effort, improvement is very much possible.",
-        "We believe you can do better. Seek help when needed, stay attentive in class, and come back stronger next term."
+        "We believe you can do better. Seek help when needed, stay attentive in class, and come back stronger next term.",
+        "The school strongly recommends remedial support and daily reading practice at home to bridge the existing learning gaps.",
+        "A concerning result that calls for immediate action. Parents are invited to partner with teachers for close monitoring.",
+        "Do not lose hope. With disciplined attendance, full attention in class, and parental guidance, progress will be made.",
+        "Significant effort and remedial revision are required. Approach next term with utmost seriousness and determination.",
+        "We urge you to redouble your commitment to your studies. The administration and teachers stand ready to guide you."
       ]
     }
   }

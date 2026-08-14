@@ -59,9 +59,15 @@ const Comments = (() => {
     if (!bank || !tierLabel) return '';
     const pool = bank[role]?.[tierLabel];
     if (!pool || !pool.length) return '';
-    // Deterministic pick based on studentId hash so same student gets same suggestion
-    const hash = studentId.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0);
-    return pool[hash % pool.length];
+    // Deterministic pick based on studentId and role hash so same student gets consistent suggestion across 20/10 comment pools
+    const key = `${studentId || ''}_${role || ''}`;
+    let hash = 0;
+    for (let i = 0; i < key.length; i++) {
+      hash = ((hash << 5) - hash) + key.charCodeAt(i);
+      hash |= 0;
+    }
+    const index = Math.abs(hash) % pool.length;
+    return pool[index];
   }
 
   // ── Get all comments for a tier (for dropdown) ─
