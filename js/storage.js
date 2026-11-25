@@ -7,6 +7,7 @@ const Storage = (() => {
   const KEYS = {
     session:   'acadex_session',
     sessionHistory: 'acadex_session_history',
+    appliedSeed: 'acadex_applied_seed',
     roster:    (cls) => `acadex_roster_${cls}`,
     marks:     (cls, term, year) => `acadex_marks_${cls}_T${term}_${year}`,
     comments:  (cls, term, year) => `acadex_comments_${cls}_T${term}_${year}`,
@@ -197,12 +198,106 @@ const Storage = (() => {
     return Logic.processAll(students, level);
   }
 
+  // ── Seed Bundle & Full Backup Import/Export ─
+  function applySeedBundle(bundle, { overwrite = false } = {}) {
+    if (!bundle || !bundle.classes || !bundle.school || !bundle.term || !bundle.year) {
+      return { applied: false, classesLoaded: 0 };
+    }
+
+    const seedId = bundle.seedId || `${bundle.school}_T${bundle.term}_${bundle.year}`;
+    if (!overwrite && load(KEYS.appliedSeed) === seedId) {
+      return { applied: false, classesLoaded: 0 };
+    }
+
+    const school = String(bundle.school).trim();
+    const term = Number(bundle.term);
+    const year = Number(bundle.year);
+    const classNames = Object.keys(bundle.classes);
+    let classesLoaded = 0;
+
+    // Seed rosters, marks, and session history entries in reverse order so P1 sits at top of recent history
+    const orderedForHistory = [...classNames].reverse();
+    orderedForHistory.forEach((cls, idx) => {
+      const clsData = bundle.classes[cls];
+      if (!clsData) return;
+
+      if (Array.isArray(clsData.roster)) {
+        saveRoster(cls, clsData.roster);
+      }
+      if (clsData.marks && typeof clsData.marks === 'object') {
+        saveAllMarks(cls, term, year, clsData.marks);
+      }
+      if (clsData.comments && typeof clsData.comments === 'object') {
+        saveAllComments(cls, term, year, clsData.comments);
+      }
+
+      upsertSessionHistory({ school, cls, term, year }, 'saved');
+      // Slight timestamp stagger so P1..P6 order cleanly in Recent Sessions
+      const history = loadSessionHistory();
+      const itemId = makeSessionHistoryId({ cls, term, year });
+      const hIdx = history.findIndex(h => h.id === itemId);
+      if (hIdx >= 0) {
+        const ts = Date.now() + idx;
+        history[hIdx].lastOpenedAt = ts;
+        history[hIdx].lastSavedAt = ts;
+        saveSessionHistory(history);
+      }
+      classesLoaded++;
+    });
+
+    const currentSession = loadSession();
+    const defaultCls = bundle.defaultClass && bundle.classes[bundle.defaultClass]
+      ? bundle.defaultClass
+      : classNames[0];
+
+    if (overwrite || !currentSession || currentSession.term !== term || currentSession.year !== year) {
+      if (defaultCls) {
+        saveSession({ school, cls: defaultCls, term, year });
+      }
+    }
+
+    save(KEYS.appliedSeed, seedId);
+    return { applied: true, classesLoaded };
+  }
+
+  function exportFullBackup() {
+    return {
+      format: 'acadex_backup_v1',
+      exportedAt: new Date().toISOString(),
+      storage: dumpAll(),
+    };
+  }
+
+  function importFullBackup(payload) {
+    if (!payload || typeof payload !== 'object') {
+      throw new Error('Invalid backup JSON');
+    }
+
+    // Support importing a seed bundle (like data/term3_2026_sunlight.json) directly
+    if (payload.classes && payload.school && payload.term && payload.year) {
+      return applySeedBundle(payload, { overwrite: true });
+    }
+
+    // Support importing full localStorage snapshot (acadex_backup_v1)
+    const storageMap = payload.format === 'acadex_backup_v1' && payload.storage
+      ? payload.storage
+      : payload;
+
+    const keys = Object.keys(storageMap).filter(k => k.startsWith('acadex_'));
+    if (!keys.length) {
+      throw new Error('No Acadex data found in file');
+    }
+
+    keys.forEach(k => save(k, storageMap[k]));
+    return { applied: true, keysRestored: keys.length };
+  }
+
   // ── Export all data for debugging ────────
   function dumpAll() {
     const out = {};
     for (let i = 0; i < localStorage.length; i++) {
       const k = localStorage.key(i);
-      if (k.startsWith('acadex_')) out[k] = load(k);
+      if (k && k.startsWith('acadex_')) out[k] = load(k);
     }
     return out;
   }
@@ -215,6 +310,6 @@ const Storage = (() => {
     saveEntrySubjectOrder, loadEntrySubjectOrder, clearEntrySubjectOrder,
     loadAllComments, saveStudentComment, saveAllComments,
     loadCommentSeed, saveCommentSeed,
-    buildClassSnapshot, dumpAll,
+    buildClassSnapshot, applySeedBundle, exportFullBackup, importFullBackup, dumpAll,
   };
 })();

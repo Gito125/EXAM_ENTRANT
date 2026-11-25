@@ -12,11 +12,28 @@ const App = (() => {
   // Synced with localStorage on save actions
   let marksBuffer = {};
 
+  const DEFAULT_SEED_URL = 'data/term3_2026_sunlight.json';
+
+  async function loadDefaultSeed(overwrite = false) {
+    try {
+      const res = await fetch(DEFAULT_SEED_URL);
+      if (!res.ok) return { applied: false };
+      const bundle = await res.json();
+      return Storage.applySeedBundle(bundle, { overwrite });
+    } catch (e) {
+      console.warn('Default seed bundle not loaded:', e);
+      return { applied: false };
+    }
+  }
+
   // ══════════════════════════════════════════
   //  INIT
   // ══════════════════════════════════════════
   async function init() {
-    await Comments.loadBanks();
+    await Promise.all([
+      Comments.loadBanks(),
+      loadDefaultSeed(false),
+    ]);
     UI.bindMobileNav();
 
     // Wire nav
@@ -153,7 +170,7 @@ const App = (() => {
     goTo('roster');
   }
 
-  function loadHistorySession(historyId) {
+  function loadHistorySession(historyId, targetView = 'setup') {
     const item = Storage.getSessionHistoryItem(historyId);
     if (!item) {
       UI.toast('Selected history record was not found.', 'error');
@@ -170,8 +187,64 @@ const App = (() => {
     Storage.saveSession(session);
     Storage.upsertSessionHistory(session, 'opened');
     marksBuffer = Storage.loadAllMarks(session.cls, session.term, session.year);
-    goTo('setup');
+    goTo(targetView || 'setup');
     UI.toast(`Loaded ${session.cls} Term ${session.term} ${session.year}.`, 'success');
+  }
+
+  function exportFullBackup() {
+    const backup = Storage.exportFullBackup();
+    const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a');
+    const dateTag = new Date().toISOString().slice(0, 10);
+    a.href = URL.createObjectURL(blob);
+    a.download = `Acadex_Backup_${dateTag}.json`;
+    a.click();
+    UI.toast('Full backup JSON exported.', 'success');
+  }
+
+  function importFullBackup() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    input.onchange = (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        try {
+          const data = JSON.parse(ev.target.result);
+          Storage.importFullBackup(data);
+          session = Storage.loadSession();
+          if (session) {
+            marksBuffer = Storage.loadAllMarks(session.cls, session.term, session.year);
+          }
+          goTo('setup');
+          UI.toast('Backup JSON imported successfully!', 'success');
+        } catch (err) {
+          console.error(err);
+          UI.toast('Invalid backup or seed JSON file.', 'error');
+        }
+      };
+      reader.readAsText(file);
+    };
+    input.click();
+  }
+
+  async function reloadDefaultSeed() {
+    if (!confirm('Reload the official Sunlight Term 3, 2026 dataset (P1–P6 rosters & marks) from disk? Any unsaved changes to Term 3, 2026 marks will be refreshed.')) {
+      return;
+    }
+    const res = await loadDefaultSeed(true);
+    if (!res.applied) {
+      UI.toast('Could not reload Term 3, 2026 seed file.', 'error');
+      return;
+    }
+    session = Storage.loadSession();
+    if (session) {
+      marksBuffer = Storage.loadAllMarks(session.cls, session.term, session.year);
+    }
+    goTo('setup');
+    UI.toast('Sunlight Term 3, 2026 data (P1–P6) reloaded!', 'success');
   }
 
   // ══════════════════════════════════════════
@@ -426,6 +499,7 @@ const App = (() => {
     init, goTo,
     saveSession,
     loadHistorySession,
+    exportFullBackup, importFullBackup, reloadDefaultSeed,
     addStudent, removeStudent, renameStudent, exportRoster, importRoster,
     onMarkInput, validateInput, saveStudentMarks, saveAllMarks, clearClassMarks,
     applyCommentFromDropdown, saveComment, randomizeComments, resetCommentsToAuto,

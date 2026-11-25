@@ -43,7 +43,7 @@ const UI = (() => {
   // ══════════════════════════════════════════
   function renderSetup(session = {}, history = []) {
     session = session || {};
-    const recent = Array.isArray(history) ? history.slice(0, 6) : [];
+    const recent = Array.isArray(history) ? history.slice(0, 8) : [];
 
     const termOpts = CONFIG.terms.map(t =>
       `<option value="${t}" ${session.term == t ? 'selected' : ''}>Term ${t}</option>`
@@ -58,8 +58,10 @@ const UI = (() => {
         <td>Term ${item.term} • ${item.year}</td>
         <td>${escHtml(item.school)}</td>
         <td style="white-space:nowrap">${formatTime(item.lastOpenedAt || item.lastSavedAt || item.createdAt)}</td>
-        <td style="text-align:right">
-          <button class="btn btn-xs btn-secondary" onclick="App.loadHistorySession('${item.id}')">Load</button>
+        <td style="text-align:right;white-space:nowrap">
+          <button class="btn btn-xs btn-secondary" onclick="App.loadHistorySession('${item.id}','setup')">Setup</button>
+          <button class="btn btn-xs btn-primary" onclick="App.loadHistorySession('${item.id}','entry')">Marks →</button>
+          <button class="btn btn-xs btn-success" onclick="App.loadHistorySession('${item.id}','results')">Results →</button>
         </td>
       </tr>
     `).join('');
@@ -70,8 +72,8 @@ const UI = (() => {
         <div class="form-grid">
           <div class="form-group" style="grid-column:1/-1">
             <label>School Name</label>
-            <input type="text" id="inp-school" placeholder="e.g. Kampala Progressive Primary School"
-              value="${session.school || ''}">
+            <input type="text" id="inp-school" placeholder="e.g. SUNLIGHT NURSERY AND PRIMARY SCHOOL"
+              value="${escHtml(session.school || '')}">
           </div>
           <div class="form-group">
             <label>Class</label>
@@ -83,13 +85,23 @@ const UI = (() => {
           </div>
           <div class="form-group">
             <label>Year</label>
-            <input type="number" id="inp-year" placeholder="e.g. 2025"
+            <input type="number" id="inp-year" placeholder="e.g. 2026"
               value="${session.year || new Date().getFullYear()}" min="2020" max="2050">
           </div>
         </div>
         <div class="form-actions">
           <button class="btn btn-primary" onclick="App.saveSession()">Save & Continue →</button>
           <button class="btn btn-secondary" onclick="App.goTo('history')">View Full History</button>
+        </div>
+      </div>
+
+      <div class="card setup-card mt-2">
+        <div class="section-title">Data Backup & Term 3, 2026 Seed</div>
+        <p class="entry-note" style="margin-bottom:.75rem">Export all rosters, marks, comments, and sessions as a single JSON backup, or restore from a saved JSON file.</p>
+        <div class="roster-controls" style="margin-bottom:0">
+          <button class="btn btn-secondary btn-sm" onclick="App.exportFullBackup()">⬇ Export Full Backup (JSON)</button>
+          <button class="btn btn-secondary btn-sm" onclick="App.importFullBackup()">⬆ Import Backup (JSON)</button>
+          <button class="btn btn-secondary btn-sm" onclick="App.reloadDefaultSeed()">↺ Reload Term 3, 2026 Seed</button>
         </div>
       </div>
 
@@ -141,8 +153,10 @@ const UI = (() => {
           <td style="white-space:nowrap">${item.year}</td>
           <td>${escHtml(item.school)}</td>
           <td style="white-space:nowrap">${formatTime(item.lastOpenedAt || item.lastSavedAt || item.createdAt)}</td>
-          <td style="text-align:right">
-            <button class="btn btn-xs btn-secondary" onclick="App.loadHistorySession('${item.id}')">Load into Setup</button>
+          <td style="text-align:right;white-space:nowrap">
+            <button class="btn btn-xs btn-secondary" onclick="App.loadHistorySession('${item.id}','setup')">Load into Setup</button>
+            <button class="btn btn-xs btn-primary" onclick="App.loadHistorySession('${item.id}','entry')">Marks →</button>
+            <button class="btn btn-xs btn-success" onclick="App.loadHistorySession('${item.id}','results')">Results →</button>
           </td>
         </tr>
       `).join('');

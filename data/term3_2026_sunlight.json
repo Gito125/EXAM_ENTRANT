@@ -1,0 +1,1740 @@
+{
+  "seedId": "sunlight_term3_2026_v1",
+  "school": "SUNLIGHT NURSERY AND PRIMARY SCHOOL",
+  "term": 3,
+  "year": 2026,
+  "defaultClass": "P1",
+  "classes": {
+    "P1": {
+      "roster": [
+        {
+          "id": "stu_1777182831768_1k66",
+          "name": "MATOVU CALVIN",
+          "cls": "P1"
+        },
+        {
+          "id": "stu_1777182822293_8861",
+          "name": "MUWANGUZI ANGEL",
+          "cls": "P1"
+        },
+        {
+          "id": "stu_1777182965437_wk4s",
+          "name": "MUWANGUZI JORDAN",
+          "cls": "P1"
+        },
+        {
+          "id": "stu_1777182803844_dzli",
+          "name": "NAMATOVU CYNTHIA",
+          "cls": "P1"
+        },
+        {
+          "id": "stu_1777182836488_qjt4",
+          "name": "KIRABO ESTHER",
+          "cls": "P1"
+        },
+        {
+          "id": "stu_1777182815684_rf28",
+          "name": "KATONGOLE ERON DIVINE",
+          "cls": "P1"
+        },
+        {
+          "id": "stu_1777182878650_yw7y",
+          "name": "SSEMAKULA RAMATHAN",
+          "cls": "P1"
+        },
+        {
+          "id": "stu_2026t3_P1_08",
+          "name": "TENYWA HASHIM",
+          "cls": "P1"
+        },
+        {
+          "id": "stu_1777182846588_mki4",
+          "name": "KIRUMILA PETER",
+          "cls": "P1"
+        },
+        {
+          "id": "stu_1777182865182_jm81",
+          "name": "SSENDAGIRE SHAKUL",
+          "cls": "P1"
+        },
+        {
+          "id": "stu_1777182909476_zuyt",
+          "name": "AMANYIRE GIFT",
+          "cls": "P1"
+        },
+        {
+          "id": "stu_2026t3_P1_12",
+          "name": "NANDUDU MERCY",
+          "cls": "P1"
+        },
+        {
+          "id": "stu_1777182931745_a70r",
+          "name": "KAWOOYA HAMJAJ",
+          "cls": "P1"
+        }
+      ],
+      "marks": {
+        "stu_1777182831768_1k66": {
+          "ENG_MID": 92,
+          "ENG_END": 94,
+          "MTC_MID": 78,
+          "MTC_END": 93,
+          "LITI_MID": 82,
+          "LITI_END": 92,
+          "LITII_MID": 94,
+          "LITII_END": 95,
+          "RE_MID": 86,
+          "RE_END": 99
+        },
+        "stu_1777182822293_8861": {
+          "ENG_MID": 88,
+          "ENG_END": 90,
+          "MTC_MID": 70,
+          "MTC_END": 93,
+          "LITI_MID": 84,
+          "LITI_END": 98,
+          "LITII_MID": 94,
+          "LITII_END": 98,
+          "RE_MID": 84,
+          "RE_END": 92
+        },
+        "stu_1777182965437_wk4s": {
+          "ENG_MID": 90,
+          "ENG_END": 92,
+          "MTC_MID": 74,
+          "MTC_END": 94,
+          "LITI_MID": 74,
+          "LITI_END": 96,
+          "LITII_MID": 90,
+          "LITII_END": 94,
+          "RE_MID": 82,
+          "RE_END": 94
+        },
+        "stu_1777182803844_dzli": {
+          "ENG_MID": 92,
+          "ENG_END": 96,
+          "MTC_MID": 80,
+          "MTC_END": 96,
+          "LITI_MID": 80,
+          "LITI_END": 88,
+          "LITII_MID": 96,
+          "LITII_END": 90,
+          "RE_MID": 84,
+          "RE_END": 92
+        },
+        "stu_1777182836488_qjt4": {
+          "ENG_MID": 84,
+          "ENG_END": 90,
+          "MTC_MID": 70,
+          "MTC_END": 95,
+          "LITI_MID": 72,
+          "LITI_END": 94,
+          "LITII_MID": 84,
+          "LITII_END": 90,
+          "RE_MID": 76,
+          "RE_END": 92
+        },
+        "stu_1777182815684_rf28": {
+          "ENG_MID": 94,
+          "ENG_END": 80,
+          "MTC_MID": 64,
+          "MTC_END": 96,
+          "LITI_MID": 84,
+          "LITI_END": 99,
+          "LITII_MID": 94,
+          "LITII_END": 89,
+          "RE_MID": 89,
+          "RE_END": 92
+        },
+        "stu_1777182878650_yw7y": {
+          "ENG_MID": 80,
+          "ENG_END": 88,
+          "MTC_END": 97,
+          "LITI_END": 90,
+          "LITII_END": 84,
+          "RE_END": 96
+        },
+        "stu_2026t3_P1_08": {
+          "ENG_MID": 82,
+          "ENG_END": 88,
+          "MTC_MID": 62,
+          "MTC_END": 93,
+          "LITI_MID": 70,
+          "LITI_END": 94,
+          "LITII_MID": 90,
+          "LITII_END": 84,
+          "RE_MID": 80,
+          "RE_END": 92
+        },
+        "stu_1777182846588_mki4": {
+          "ENG_MID": 74,
+          "ENG_END": 84,
+          "MTC_MID": 60,
+          "MTC_END": 90,
+          "LITI_MID": 48,
+          "LITI_END": 98,
+          "LITII_MID": 87,
+          "LITII_END": 88,
+          "RE_MID": 66,
+          "RE_END": 90
+        },
+        "stu_1777182865182_jm81": {
+          "ENG_MID": 70,
+          "ENG_END": 84,
+          "MTC_MID": 70,
+          "MTC_END": 96,
+          "LITI_MID": 70,
+          "LITI_END": 94,
+          "LITII_MID": 84,
+          "LITII_END": 74,
+          "RE_MID": 80,
+          "RE_END": 94
+        },
+        "stu_1777182909476_zuyt": {
+          "ENG_MID": 76,
+          "ENG_END": 80,
+          "MTC_MID": 48,
+          "MTC_END": 96,
+          "LITI_MID": 70,
+          "LITI_END": 88,
+          "LITII_MID": 84,
+          "LITII_END": 86,
+          "RE_MID": 74,
+          "RE_END": 90
+        },
+        "stu_2026t3_P1_12": {
+          "ENG_MID": 84,
+          "ENG_END": 86,
+          "MTC_MID": 70,
+          "MTC_END": 90,
+          "LITI_MID": 74,
+          "LITI_END": 88,
+          "LITII_MID": 94,
+          "LITII_END": 80,
+          "RE_MID": 76,
+          "RE_END": 92
+        },
+        "stu_1777182931745_a70r": {
+          "ENG_MID": 60,
+          "ENG_END": 56,
+          "MTC_MID": 44,
+          "MTC_END": 94,
+          "LITI_MID": 60,
+          "LITI_END": 80,
+          "LITII_MID": 74,
+          "LITII_END": 64,
+          "RE_MID": 64,
+          "RE_END": 90
+        }
+      }
+    },
+    "P2": {
+      "roster": [
+        {
+          "id": "stu_1777181218458_t5qt",
+          "name": "OPIA MERCY",
+          "cls": "P2"
+        },
+        {
+          "id": "stu_1777181233699_gn0f",
+          "name": "NAMUBIRU PATIENCE",
+          "cls": "P2"
+        },
+        {
+          "id": "stu_1777181318149_fgt4",
+          "name": "ERAMUGO EMMANUEL",
+          "cls": "P2"
+        },
+        {
+          "id": "stu_2026t3_P2_04",
+          "name": "LUJJA ABDU",
+          "cls": "P2"
+        },
+        {
+          "id": "stu_1777181225394_pxny",
+          "name": "MUYA BLESSING",
+          "cls": "P2"
+        },
+        {
+          "id": "stu_1777181242137_pd40",
+          "name": "OPI GODWILL",
+          "cls": "P2"
+        },
+        {
+          "id": "stu_1777181396669_yzmz",
+          "name": "NYANDERA MERCY",
+          "cls": "P2"
+        },
+        {
+          "id": "stu_1777181376417_egj7",
+          "name": "KATANDI MABLE",
+          "cls": "P2"
+        },
+        {
+          "id": "stu_1777181436838_xpab",
+          "name": "KYETELEKELA SUMAYIYA SCOVIA",
+          "cls": "P2"
+        },
+        {
+          "id": "stu_2026t3_P2_10",
+          "name": "MWANJE SHAKUL",
+          "cls": "P2"
+        },
+        {
+          "id": "stu_1777181389377_r8f6",
+          "name": "ANYANGAT DIVINE",
+          "cls": "P2"
+        },
+        {
+          "id": "stu_1777181476709_gb5b",
+          "name": "NAKIGANDA HUSINAH",
+          "cls": "P2"
+        },
+        {
+          "id": "stu_1777181456657_vgrx",
+          "name": "KIMBUGWE GIDEON",
+          "cls": "P2"
+        },
+        {
+          "id": "stu_1777181403156_uuuy",
+          "name": "KATENDE IAN",
+          "cls": "P2"
+        },
+        {
+          "id": "stu_1777181509592_m09m",
+          "name": "NAKAZIBA ROBINAH",
+          "cls": "P2"
+        },
+        {
+          "id": "stu_1777181412493_kob0",
+          "name": "TUSHABE MACKYLA",
+          "cls": "P2"
+        },
+        {
+          "id": "stu_1777181524985_w79j",
+          "name": "AMUMPAIRE JACQUARD",
+          "cls": "P2"
+        },
+        {
+          "id": "stu_2026t3_P2_18",
+          "name": "YIGA CHRISTOPHER",
+          "cls": "P2"
+        },
+        {
+          "id": "stu_2026t3_P2_19",
+          "name": "MUGALU COPRIAM",
+          "cls": "P2"
+        }
+      ],
+      "marks": {
+        "stu_1777181218458_t5qt": {
+          "ENG_MID": 94,
+          "ENG_END": 92,
+          "MTC_MID": 94,
+          "MTC_END": 98,
+          "LITI_MID": 94,
+          "LITI_END": 90,
+          "LITII_MID": 90,
+          "LITII_END": 98,
+          "RE_MID": 92,
+          "RE_END": 98
+        },
+        "stu_1777181233699_gn0f": {
+          "ENG_MID": 84,
+          "ENG_END": 90,
+          "MTC_MID": 92,
+          "MTC_END": 98,
+          "LITI_MID": 88,
+          "LITI_END": 88,
+          "LITII_MID": 98,
+          "LITII_END": 94,
+          "RE_MID": 80,
+          "RE_END": 98
+        },
+        "stu_1777181318149_fgt4": {
+          "ENG_MID": 86,
+          "ENG_END": 89,
+          "MTC_MID": 92,
+          "MTC_END": 94,
+          "LITI_MID": 88,
+          "LITI_END": 90,
+          "LITII_MID": 92,
+          "LITII_END": 98,
+          "RE_MID": 88,
+          "RE_END": 96
+        },
+        "stu_2026t3_P2_04": {
+          "ENG_MID": 84,
+          "ENG_END": 89,
+          "MTC_MID": 90,
+          "MTC_END": 98,
+          "LITI_MID": 82,
+          "LITI_END": 90,
+          "LITII_MID": 100,
+          "LITII_END": 90,
+          "RE_MID": 88,
+          "RE_END": 98
+        },
+        "stu_1777181225394_pxny": {
+          "ENG_MID": 90,
+          "ENG_END": 90,
+          "MTC_MID": 92,
+          "MTC_END": 94,
+          "LITI_MID": 98,
+          "LITI_END": 88,
+          "LITII_MID": 92,
+          "LITII_END": 92,
+          "RE_MID": 88,
+          "RE_END": 100
+        },
+        "stu_1777181242137_pd40": {
+          "ENG_MID": 84,
+          "ENG_END": 86,
+          "MTC_MID": 86,
+          "MTC_END": 96,
+          "LITI_MID": 88,
+          "LITI_END": 88,
+          "LITII_MID": 78,
+          "LITII_END": 86,
+          "RE_MID": 90,
+          "RE_END": 98
+        },
+        "stu_1777181396669_yzmz": {
+          "ENG_MID": 76,
+          "ENG_END": 74,
+          "MTC_MID": 90,
+          "MTC_END": 96,
+          "LITI_MID": 80,
+          "LITI_END": 84,
+          "LITII_MID": 68,
+          "LITII_END": 89,
+          "RE_MID": 80,
+          "RE_END": 98
+        },
+        "stu_1777181376417_egj7": {
+          "ENG_MID": 74,
+          "ENG_END": 74,
+          "MTC_MID": 90,
+          "MTC_END": 98,
+          "LITI_MID": 74,
+          "LITI_END": 84,
+          "LITII_MID": 84,
+          "LITII_END": 92,
+          "RE_MID": 86,
+          "RE_END": 90
+        },
+        "stu_1777181436838_xpab": {
+          "ENG_MID": 56,
+          "ENG_END": 74,
+          "MTC_MID": 82,
+          "MTC_END": 94,
+          "LITI_MID": 70,
+          "LITI_END": 80,
+          "LITII_MID": 64,
+          "LITII_END": 94,
+          "RE_MID": 60,
+          "RE_END": 96
+        },
+        "stu_2026t3_P2_10": {
+          "ENG_MID": 60,
+          "ENG_END": 86,
+          "MTC_MID": 86,
+          "MTC_END": 96,
+          "LITI_MID": 64,
+          "LITI_END": 74,
+          "LITII_MID": 80,
+          "LITII_END": 86,
+          "RE_MID": 80,
+          "RE_END": 92
+        },
+        "stu_1777181389377_r8f6": {
+          "ENG_MID": 74,
+          "ENG_END": 70,
+          "MTC_MID": 82,
+          "MTC_END": 94,
+          "LITI_MID": 86,
+          "LITI_END": 90,
+          "LITII_MID": 86,
+          "LITII_END": 80,
+          "RE_MID": 80,
+          "RE_END": 96
+        },
+        "stu_1777181476709_gb5b": {
+          "ENG_MID": 76,
+          "ENG_END": 76,
+          "MTC_MID": 80,
+          "MTC_END": 82,
+          "LITI_MID": 74,
+          "LITI_END": 82,
+          "LITII_MID": 84,
+          "LITII_END": 92,
+          "RE_MID": 66,
+          "RE_END": 94
+        },
+        "stu_1777181456657_vgrx": {
+          "ENG_MID": 50,
+          "ENG_END": 64,
+          "MTC_MID": 78,
+          "MTC_END": 90,
+          "LITI_MID": 66,
+          "LITI_END": 78,
+          "LITII_MID": 86,
+          "LITII_END": 89,
+          "RE_MID": 84,
+          "RE_END": 94
+        },
+        "stu_1777181403156_uuuy": {
+          "ENG_MID": 54,
+          "ENG_END": 64,
+          "MTC_MID": 70,
+          "MTC_END": 82,
+          "LITI_MID": 60,
+          "LITI_END": 70,
+          "LITII_MID": 48,
+          "LITII_END": 86,
+          "RE_MID": 80,
+          "RE_END": 92
+        },
+        "stu_1777181509592_m09m": {
+          "ENG_MID": 56,
+          "ENG_END": 60,
+          "MTC_MID": 74,
+          "MTC_END": 89,
+          "LITI_MID": 54,
+          "LITI_END": 72,
+          "LITII_MID": 72,
+          "LITII_END": 80,
+          "RE_MID": 70,
+          "RE_END": 92
+        },
+        "stu_1777181412493_kob0": {
+          "ENG_MID": 60,
+          "ENG_END": 70,
+          "MTC_MID": 90,
+          "MTC_END": 86,
+          "LITI_MID": 60,
+          "LITI_END": 66,
+          "LITII_MID": 74,
+          "LITII_END": 78,
+          "RE_MID": 76,
+          "RE_END": 90
+        },
+        "stu_1777181524985_w79j": {
+          "ENG_MID": 28,
+          "ENG_END": 58,
+          "MTC_MID": 80,
+          "MTC_END": 88,
+          "LITI_MID": 40,
+          "LITI_END": 84,
+          "LITII_MID": 68,
+          "LITII_END": 70,
+          "RE_MID": 80,
+          "RE_END": 64
+        },
+        "stu_2026t3_P2_18": {
+          "ENG_MID": 40,
+          "ENG_END": 48,
+          "MTC_MID": 36,
+          "MTC_END": 78,
+          "LITI_MID": 48,
+          "LITI_END": 56,
+          "LITII_END": 72,
+          "RE_MID": 52,
+          "RE_END": 70
+        },
+        "stu_2026t3_P2_19": {
+          "ENG_MID": 34,
+          "MTC_MID": 70,
+          "LITI_MID": 44,
+          "LITII_MID": 60,
+          "RE_MID": 60
+        }
+      }
+    },
+    "P3": {
+      "roster": [
+        {
+          "id": "stu_1777176774499_e69k",
+          "name": "KISAKYE CHLOE",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_1777176780610_lakq",
+          "name": "KWAGALA GRACE",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_1777176806099_e3o6",
+          "name": "OPUTAN MARK",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_1777176785328_cf6l",
+          "name": "IKIMA SHALOM",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_1777176794668_0wes",
+          "name": "NAMUTEBI RONITAH",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_1777176800670_lzki",
+          "name": "NALUMU PEACE",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_1777180193362_rjbd",
+          "name": "MUHINDO NAUME",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_2026t3_P3_08",
+          "name": "MATOVU RAYAN",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_1777176816334_2h26",
+          "name": "NAMIGADDE NISHA",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_1777176834158_yrpk",
+          "name": "MUKALAZI EMMANUEL",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_1777176843017_5uje",
+          "name": "ABILI SHADRACK",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_1777176891170_3n2p",
+          "name": "NABUKENYA PATRINAH",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_1777176823814_dnod",
+          "name": "KAVUMA DIANAH RUTH",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_1777176992344_lmrn",
+          "name": "NAKANDI REBECCA",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_1777176872320_wqa1",
+          "name": "MANZI YANICK",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_1777176862359_id49",
+          "name": "NINSIIMA MIRIA",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_1777176942146_8brk",
+          "name": "KASSAGA ARNOLD",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_1777176851872_o7tb",
+          "name": "NAKIWALA LETICIA",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_1777176923143_7lur",
+          "name": "MUKWAYA ALLAN",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_1777176908838_2a20",
+          "name": "BWAMBALE EDRIAN",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_1777176897629_q8yz",
+          "name": "MUKISA DAVID",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_1777177000573_u324",
+          "name": "MATOVU RAMATHAN",
+          "cls": "P3"
+        },
+        {
+          "id": "stu_1777177020643_9cjs",
+          "name": "MULUNGI IDRACQ",
+          "cls": "P3"
+        }
+      ],
+      "marks": {
+        "stu_1777176774499_e69k": {
+          "ENG_MID": 82,
+          "ENG_END": 92,
+          "MTC_MID": 81,
+          "MTC_END": 92,
+          "LITI_MID": 70,
+          "LITI_END": 96,
+          "LITII_MID": 98,
+          "LITII_END": 98,
+          "RE_MID": 68,
+          "RE_END": 89
+        },
+        "stu_1777176780610_lakq": {
+          "ENG_MID": 89,
+          "ENG_END": 95,
+          "MTC_MID": 81,
+          "MTC_END": 88,
+          "LITI_MID": 71,
+          "LITI_END": 89,
+          "LITII_MID": 98,
+          "LITII_END": 98,
+          "RE_MID": 60,
+          "RE_END": 93
+        },
+        "stu_1777176806099_e3o6": {
+          "ENG_MID": 66,
+          "ENG_END": 92,
+          "MTC_MID": 80,
+          "MTC_END": 87,
+          "LITI_MID": 58,
+          "LITI_END": 91,
+          "LITII_MID": 84,
+          "LITII_END": 90,
+          "RE_MID": 56,
+          "RE_END": 86
+        },
+        "stu_1777176785328_cf6l": {
+          "ENG_MID": 78,
+          "ENG_END": 89,
+          "MTC_MID": 68,
+          "MTC_END": 76,
+          "LITI_MID": 73,
+          "LITI_END": 88,
+          "LITII_MID": 89,
+          "LITII_END": 96,
+          "RE_MID": 70,
+          "RE_END": 83
+        },
+        "stu_1777176794668_0wes": {
+          "ENG_END": 87,
+          "MTC_END": 85,
+          "LITI_END": 86,
+          "LITII_END": 92,
+          "RE_END": 76
+        },
+        "stu_1777176800670_lzki": {
+          "ENG_MID": 62,
+          "ENG_END": 85,
+          "MTC_MID": 68,
+          "MTC_END": 89,
+          "LITI_MID": 58,
+          "LITI_END": 81,
+          "LITII_MID": 98,
+          "LITII_END": 92,
+          "RE_MID": 51,
+          "RE_END": 73
+        },
+        "stu_1777180193362_rjbd": {
+          "ENG_MID": 59,
+          "ENG_END": 83,
+          "MTC_MID": 52,
+          "MTC_END": 89,
+          "LITI_MID": 46,
+          "LITI_END": 81,
+          "LITII_MID": 90,
+          "LITII_END": 92,
+          "RE_MID": 46,
+          "RE_END": 73
+        },
+        "stu_2026t3_P3_08": {
+          "ENG_MID": 46,
+          "ENG_END": 76,
+          "MTC_MID": 50,
+          "MTC_END": 84,
+          "LITI_MID": 50,
+          "LITI_END": 88,
+          "LITII_MID": 86,
+          "LITII_END": 90,
+          "RE_MID": 50,
+          "RE_END": 74
+        },
+        "stu_1777176816334_2h26": {
+          "ENG_MID": 42,
+          "ENG_END": 72,
+          "MTC_MID": 52,
+          "MTC_END": 85,
+          "LITI_MID": 35,
+          "LITI_END": 78,
+          "LITII_MID": 69,
+          "LITII_END": 92,
+          "RE_MID": 46,
+          "RE_END": 79
+        },
+        "stu_1777176834158_yrpk": {
+          "ENG_MID": 24,
+          "ENG_END": 69,
+          "MTC_MID": 52,
+          "MTC_END": 85,
+          "LITI_MID": 41,
+          "LITI_END": 69,
+          "LITII_MID": 78,
+          "LITII_END": 86,
+          "RE_MID": 44,
+          "RE_END": 53
+        },
+        "stu_1777176843017_5uje": {
+          "ENG_MID": 46,
+          "ENG_END": 64,
+          "MTC_MID": 55,
+          "MTC_END": 76,
+          "LITI_MID": 37,
+          "LITI_END": 63,
+          "LITII_MID": 88,
+          "LITII_END": 78,
+          "RE_MID": 37,
+          "RE_END": 67
+        },
+        "stu_1777176891170_3n2p": {
+          "ENG_MID": 36,
+          "ENG_END": 60,
+          "MTC_MID": 72,
+          "MTC_END": 75,
+          "LITI_MID": 44,
+          "LITI_END": 55,
+          "LITII_MID": 86,
+          "LITII_END": 90,
+          "RE_MID": 42,
+          "RE_END": 68
+        },
+        "stu_1777176823814_dnod": {
+          "ENG_MID": 45,
+          "ENG_END": 79,
+          "MTC_MID": 48,
+          "MTC_END": 67,
+          "LITI_MID": 27,
+          "LITI_END": 61,
+          "LITII_MID": 86,
+          "LITII_END": 89,
+          "RE_MID": 44,
+          "RE_END": 52
+        },
+        "stu_1777176992344_lmrn": {
+          "ENG_MID": 40,
+          "ENG_END": 60,
+          "MTC_MID": 63,
+          "MTC_END": 80,
+          "LITI_MID": 34,
+          "LITI_END": 64,
+          "LITII_MID": 72,
+          "LITII_END": 84,
+          "RE_MID": 37,
+          "RE_END": 57
+        },
+        "stu_1777176872320_wqa1": {
+          "ENG_MID": 29,
+          "ENG_END": 56,
+          "MTC_MID": 56,
+          "MTC_END": 72,
+          "LITI_MID": 27,
+          "LITI_END": 60,
+          "LITII_MID": 68,
+          "LITII_END": 84,
+          "RE_MID": 27,
+          "RE_END": 43
+        },
+        "stu_1777176862359_id49": {
+          "ENG_MID": 32,
+          "ENG_END": 62,
+          "MTC_MID": 50,
+          "MTC_END": 60,
+          "LITI_MID": 31,
+          "LITI_END": 50,
+          "LITII_MID": 80,
+          "LITII_END": 90,
+          "RE_MID": 33,
+          "RE_END": 49
+        },
+        "stu_1777176942146_8brk": {
+          "ENG_MID": 24,
+          "ENG_END": 49,
+          "MTC_MID": 54,
+          "MTC_END": 75,
+          "LITI_MID": 21,
+          "LITI_END": 51,
+          "LITII_MID": 56,
+          "LITII_END": 80,
+          "RE_MID": 38,
+          "RE_END": 54
+        },
+        "stu_1777176851872_o7tb": {
+          "ENG_MID": 28,
+          "ENG_END": 55,
+          "MTC_MID": 53,
+          "MTC_END": 56,
+          "LITI_MID": 33,
+          "LITI_END": 51,
+          "LITII_MID": 84,
+          "LITII_END": 82,
+          "RE_MID": 27,
+          "RE_END": 55
+        },
+        "stu_1777176923143_7lur": {
+          "ENG_MID": 17,
+          "ENG_END": 43,
+          "MTC_MID": 61,
+          "MTC_END": 80,
+          "LITI_MID": 25,
+          "LITI_END": 45,
+          "LITII_MID": 68,
+          "LITII_END": 84,
+          "RE_MID": 26,
+          "RE_END": 32
+        },
+        "stu_1777176908838_2a20": {
+          "ENG_MID": 14,
+          "ENG_END": 41,
+          "MTC_MID": 52,
+          "MTC_END": 78,
+          "LITI_MID": 22,
+          "LITI_END": 43,
+          "LITII_MID": 64,
+          "LITII_END": 76,
+          "RE_MID": 24,
+          "RE_END": 28
+        },
+        "stu_1777176897629_q8yz": {
+          "ENG_MID": 8,
+          "ENG_END": 30,
+          "MTC_MID": 51,
+          "MTC_END": 51,
+          "LITI_MID": 21,
+          "LITI_END": 26,
+          "LITII_MID": 60,
+          "LITII_END": 78,
+          "RE_MID": 24,
+          "RE_END": 54
+        },
+        "stu_1777177000573_u324": {
+          "ENG_MID": 15,
+          "ENG_END": 34,
+          "MTC_MID": 24,
+          "MTC_END": 25,
+          "LITI_MID": 20,
+          "LITI_END": 18,
+          "LITII_MID": 56,
+          "LITII_END": 74,
+          "RE_MID": 18,
+          "RE_END": 41
+        },
+        "stu_1777177020643_9cjs": {
+          "ENG_MID": 3,
+          "MTC_MID": 20,
+          "LITI_MID": 7,
+          "LITII_MID": 56,
+          "RE_MID": 11
+        }
+      }
+    },
+    "P4": {
+      "roster": [
+        {
+          "id": "stu_1777175089739_w98h",
+          "name": "NALUBULA ANGEL",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_1777175145179_yajp",
+          "name": "LUBEGA KEVIN",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_1777175182431_6jra",
+          "name": "NAKAZIBWE RIHANAH",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_1777175081851_ub18",
+          "name": "NASASIRA ERINA",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_1777175130896_kl9w",
+          "name": "MIYINGO JAMINE",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_1777175140436_415i",
+          "name": "KABUGHO JOY",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_1777175191890_xwej",
+          "name": "NAKKAZZI ANISHA",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_2026t3_P4_08",
+          "name": "NABULYA JUDITH",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_1777175107259_qt42",
+          "name": "NALUBEGA SHUKURAN",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_1777175155782_pair",
+          "name": "NAMANDA SHAMAIRAH",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_1777175167396_2bs8",
+          "name": "MUSABE JACKLIE",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_1777175201439_j4ks",
+          "name": "MUWANGUZI DAVID",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_1777175209807_8ksa",
+          "name": "KIZITO SHAKIM",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_2026t3_P4_14",
+          "name": "NAMPIIMA MARIAM",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_2026t3_P4_15",
+          "name": "MUWANGUZI TITUS",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_1777175325426_bdar",
+          "name": "BALUKU DALTON",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_1777175359878_qlky",
+          "name": "NKAKIBONA ADAM RAZACK",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_2026t3_P4_18",
+          "name": "WASSAJJA CHRIS MICHEAL",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_1777175347577_lsdt",
+          "name": "BYAMUKAMA IAN MARK",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_1777175318115_5d3g",
+          "name": "KIRIVAWA SHAKUL",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_1777175377123_qkdd",
+          "name": "WASSWA NTALE JOHN",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_2026t3_P4_22",
+          "name": "MULUNGI SHANNEL",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_2026t3_P4_23",
+          "name": "MPAALA BORRIS",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_1777175336347_cs7b",
+          "name": "OKELLO SOLOMON",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_2026t3_P4_25",
+          "name": "MUYINGO DIVINE",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_1777175396068_cj77",
+          "name": "BABIRYE VIOLAH",
+          "cls": "P4"
+        },
+        {
+          "id": "stu_2026t3_P4_27",
+          "name": "TENYWA RAYAN",
+          "cls": "P4"
+        }
+      ],
+      "marks": {
+        "stu_1777175089739_w98h": {
+          "ENG_MID": 88,
+          "ENG_END": 90,
+          "MTC_MID": 86,
+          "MTC_END": 92,
+          "SCI_MID": 56,
+          "SCI_END": 79,
+          "SST_MID": 90,
+          "SST_END": 87
+        },
+        "stu_1777175145179_yajp": {
+          "ENG_MID": 50,
+          "ENG_END": 82,
+          "MTC_MID": 55,
+          "MTC_END": 80,
+          "SCI_MID": 48,
+          "SCI_END": 84,
+          "SST_MID": 57,
+          "SST_END": 75
+        },
+        "stu_1777175182431_6jra": {
+          "ENG_MID": 64,
+          "ENG_END": 80,
+          "MTC_MID": 72,
+          "MTC_END": 90,
+          "SCI_MID": 24,
+          "SCI_END": 52,
+          "SST_MID": 49,
+          "SST_END": 78
+        },
+        "stu_1777175081851_ub18": {
+          "ENG_MID": 77,
+          "ENG_END": 80,
+          "MTC_MID": 70,
+          "MTC_END": 69,
+          "SCI_MID": 59,
+          "SCI_END": 70,
+          "SST_MID": 81,
+          "SST_END": 81
+        },
+        "stu_1777175130896_kl9w": {
+          "ENG_MID": 62,
+          "ENG_END": 79,
+          "MTC_MID": 60,
+          "MTC_END": 61,
+          "SCI_MID": 48,
+          "SCI_END": 60,
+          "SST_MID": 81,
+          "SST_END": 80
+        },
+        "stu_1777175140436_415i": {
+          "ENG_MID": 62,
+          "ENG_END": 66,
+          "MTC_MID": 58,
+          "MTC_END": 77,
+          "SCI_MID": 49,
+          "SCI_END": 57,
+          "SST_MID": 70,
+          "SST_END": 73
+        },
+        "stu_1777175191890_xwej": {
+          "ENG_MID": 65,
+          "ENG_END": 73,
+          "MTC_MID": 53,
+          "MTC_END": 67,
+          "SCI_MID": 22,
+          "SCI_END": 63,
+          "SST_MID": 47,
+          "SST_END": 63
+        },
+        "stu_2026t3_P4_08": {
+          "ENG_MID": 63,
+          "ENG_END": 75,
+          "MTC_MID": 50,
+          "MTC_END": 56,
+          "SCI_MID": 42,
+          "SCI_END": 50,
+          "SST_MID": 61,
+          "SST_END": 80
+        },
+        "stu_1777175107259_qt42": {
+          "ENG_MID": 60,
+          "ENG_END": 55,
+          "MTC_MID": 61,
+          "MTC_END": 80,
+          "SCI_MID": 29,
+          "SCI_END": 47,
+          "SST_MID": 65,
+          "SST_END": 71
+        },
+        "stu_1777175155782_pair": {
+          "ENG_MID": 67,
+          "ENG_END": 82,
+          "MTC_MID": 52,
+          "MTC_END": 46,
+          "SCI_MID": 35,
+          "SCI_END": 58,
+          "SST_MID": 50,
+          "SST_END": 68
+        },
+        "stu_1777175167396_2bs8": {
+          "ENG_MID": 56,
+          "ENG_END": 55,
+          "MTC_MID": 52,
+          "MTC_END": 60,
+          "SCI_MID": 56,
+          "SCI_END": 55,
+          "SST_MID": 65,
+          "SST_END": 71
+        },
+        "stu_1777175201439_j4ks": {
+          "ENG_MID": 58,
+          "ENG_END": 46,
+          "MTC_MID": 33,
+          "MTC_END": 40,
+          "SCI_MID": 39,
+          "SCI_END": 50,
+          "SST_MID": 54,
+          "SST_END": 69
+        },
+        "stu_1777175209807_8ksa": {
+          "ENG_MID": 64,
+          "ENG_END": 54,
+          "MTC_MID": 54,
+          "MTC_END": 50,
+          "SCI_MID": 14,
+          "SCI_END": 40,
+          "SST_MID": 34,
+          "SST_END": 48
+        },
+        "stu_2026t3_P4_14": {
+          "ENG_MID": 41,
+          "ENG_END": 40,
+          "MTC_MID": 48,
+          "MTC_END": 60,
+          "SCI_MID": 17,
+          "SCI_END": 32,
+          "SST_MID": 22,
+          "SST_END": 41
+        },
+        "stu_2026t3_P4_15": {
+          "ENG_MID": 48,
+          "ENG_END": 47,
+          "MTC_END": 29,
+          "SCI_MID": 24,
+          "SCI_END": 40,
+          "SST_END": 52
+        },
+        "stu_1777175325426_bdar": {
+          "ENG_MID": 39,
+          "ENG_END": 42,
+          "MTC_MID": 20,
+          "MTC_END": 52,
+          "SCI_MID": 10,
+          "SCI_END": 23,
+          "SST_MID": 35,
+          "SST_END": 42
+        },
+        "stu_1777175359878_qlky": {
+          "ENG_MID": 44,
+          "ENG_END": 34,
+          "MTC_MID": 53,
+          "MTC_END": 43,
+          "SCI_MID": 13,
+          "SCI_END": 37,
+          "SST_MID": 30,
+          "SST_END": 40
+        },
+        "stu_2026t3_P4_18": {
+          "ENG_END": 36,
+          "MTC_END": 23,
+          "SCI_END": 35,
+          "SST_END": 60
+        },
+        "stu_1777175347577_lsdt": {
+          "ENG_MID": 48,
+          "ENG_END": 33,
+          "MTC_MID": 45,
+          "MTC_END": 30,
+          "SCI_MID": 14,
+          "SCI_END": 34,
+          "SST_MID": 28,
+          "SST_END": 44
+        },
+        "stu_1777175318115_5d3g": {
+          "ENG_MID": 35,
+          "ENG_END": 32,
+          "MTC_MID": 33,
+          "MTC_END": 37,
+          "SCI_MID": 13,
+          "SCI_END": 22,
+          "SST_MID": 30,
+          "SST_END": 37
+        },
+        "stu_1777175377123_qkdd": {
+          "ENG_MID": 24,
+          "ENG_END": 20,
+          "MTC_MID": 50,
+          "MTC_END": 50,
+          "SCI_MID": 5,
+          "SCI_END": 10,
+          "SST_MID": 10,
+          "SST_END": 20
+        },
+        "stu_2026t3_P4_22": {
+          "ENG_MID": 16,
+          "ENG_END": 20,
+          "MTC_MID": 37,
+          "MTC_END": 32,
+          "SCI_MID": 18,
+          "SCI_END": 22,
+          "SST_MID": 34,
+          "SST_END": 31
+        },
+        "stu_2026t3_P4_23": {
+          "ENG_MID": 14,
+          "ENG_END": 9,
+          "MTC_MID": 18,
+          "MTC_END": 27,
+          "SCI_MID": 7,
+          "SCI_END": 9,
+          "SST_MID": 24,
+          "SST_END": 30
+        },
+        "stu_1777175336347_cs7b": {
+          "ENG_MID": 28,
+          "ENG_END": 10,
+          "MTC_MID": 10,
+          "MTC_END": 6,
+          "SCI_MID": 6,
+          "SCI_END": 20,
+          "SST_MID": 30,
+          "SST_END": 36
+        },
+        "stu_2026t3_P4_25": {
+          "ENG_MID": 20,
+          "ENG_END": 18,
+          "MTC_MID": 23,
+          "MTC_END": 23,
+          "SCI_MID": 6,
+          "SCI_END": 25,
+          "SST_MID": 14,
+          "SST_END": 29
+        },
+        "stu_1777175396068_cj77": {
+          "ENG_MID": 17,
+          "ENG_END": 15,
+          "MTC_MID": 17,
+          "MTC_END": 7,
+          "SCI_MID": 5,
+          "SCI_END": 20,
+          "SST_MID": 11,
+          "SST_END": 22
+        },
+        "stu_2026t3_P4_27": {
+          "ENG_MID": 19,
+          "MTC_MID": 10,
+          "MTC_END": 6,
+          "SCI_MID": 5,
+          "SCI_END": 10,
+          "SST_MID": 10,
+          "SST_END": 10
+        }
+      }
+    },
+    "P5": {
+      "roster": [
+        {
+          "id": "stu_2026t3_P5_01",
+          "name": "MUSOLELI JEREMIAH",
+          "cls": "P5"
+        },
+        {
+          "id": "stu_1777173766976_g0vv",
+          "name": "MUYANGA JOHN",
+          "cls": "P5"
+        },
+        {
+          "id": "stu_1777173623683_5099",
+          "name": "NAKIWU SUZAN TRACY",
+          "cls": "P5"
+        },
+        {
+          "id": "stu_1777173581719_9v70",
+          "name": "NALWADDA HAKIMAT",
+          "cls": "P5"
+        },
+        {
+          "id": "stu_1777173648770_buwm",
+          "name": "BIIRA JULIET ASIMAWE",
+          "cls": "P5"
+        },
+        {
+          "id": "stu_1777173613887_cxxj",
+          "name": "NABIRYE LATIFAH",
+          "cls": "P5"
+        },
+        {
+          "id": "stu_1777173597724_rwv9",
+          "name": "AKINYI SHIFURAH OKOTH",
+          "cls": "P5"
+        },
+        {
+          "id": "stu_1777173640933_a0nj",
+          "name": "MIREMBE SHARON",
+          "cls": "P5"
+        },
+        {
+          "id": "stu_1777173657369_kxfv",
+          "name": "LETASI PATIENCE TRACY",
+          "cls": "P5"
+        },
+        {
+          "id": "stu_1777173668801_3l6z",
+          "name": "NANSUBUGA TRINITY",
+          "cls": "P5"
+        },
+        {
+          "id": "stu_1777173718069_w922",
+          "name": "NDAGIRE LETICIA",
+          "cls": "P5"
+        },
+        {
+          "id": "stu_1777173707515_e4j3",
+          "name": "ABILI SHAFICK HARUNAH",
+          "cls": "P5"
+        },
+        {
+          "id": "stu_2026t3_P5_13",
+          "name": "BWAMBALE DAVIS",
+          "cls": "P5"
+        },
+        {
+          "id": "stu_1777173778025_l109",
+          "name": "KAFUKO ZULAIKA",
+          "cls": "P5"
+        },
+        {
+          "id": "stu_1777173741568_waz5",
+          "name": "NABUKEERA ANGELLA",
+          "cls": "P5"
+        },
+        {
+          "id": "stu_1777173789703_u6s7",
+          "name": "KALUNGI PHILLIP",
+          "cls": "P5"
+        }
+      ],
+      "marks": {
+        "stu_2026t3_P5_01": {
+          "ENG_MID": 85,
+          "ENG_END": 93,
+          "MTC_MID": 78,
+          "MTC_END": 92,
+          "SCI_MID": 79,
+          "SCI_END": 83,
+          "SST_MID": 80,
+          "SST_END": 91
+        },
+        "stu_1777173766976_g0vv": {
+          "ENG_MID": 91,
+          "ENG_END": 85,
+          "MTC_MID": 57,
+          "MTC_END": 66,
+          "SCI_MID": 75,
+          "SCI_END": 57,
+          "SST_MID": 81,
+          "SST_END": 82
+        },
+        "stu_1777173623683_5099": {
+          "ENG_MID": 88,
+          "ENG_END": 85,
+          "MTC_MID": 61,
+          "MTC_END": 66,
+          "SCI_MID": 42,
+          "SCI_END": 56,
+          "SST_MID": 72,
+          "SST_END": 66
+        },
+        "stu_1777173581719_9v70": {
+          "ENG_MID": 84,
+          "ENG_END": 81,
+          "MTC_MID": 51,
+          "MTC_END": 65,
+          "SCI_MID": 45,
+          "SCI_END": 43,
+          "SST_MID": 53,
+          "SST_END": 64
+        },
+        "stu_1777173648770_buwm": {
+          "ENG_MID": 74,
+          "ENG_END": 60,
+          "MTC_MID": 54,
+          "MTC_END": 63,
+          "SCI_MID": 43,
+          "SCI_END": 45,
+          "SST_MID": 69,
+          "SST_END": 65
+        },
+        "stu_1777173613887_cxxj": {
+          "ENG_MID": 69,
+          "ENG_END": 59,
+          "MTC_MID": 39,
+          "MTC_END": 47,
+          "SCI_MID": 48,
+          "SCI_END": 45,
+          "SST_MID": 50,
+          "SST_END": 68
+        },
+        "stu_1777173597724_rwv9": {
+          "ENG_MID": 61,
+          "ENG_END": 55,
+          "MTC_MID": 60,
+          "MTC_END": 64,
+          "SCI_MID": 42,
+          "SCI_END": 33,
+          "SST_MID": 76,
+          "SST_END": 52
+        },
+        "stu_1777173640933_a0nj": {
+          "ENG_MID": 62,
+          "ENG_END": 65,
+          "MTC_MID": 38,
+          "MTC_END": 46,
+          "SCI_MID": 27,
+          "SCI_END": 41,
+          "SST_MID": 57,
+          "SST_END": 48
+        },
+        "stu_1777173657369_kxfv": {
+          "ENG_MID": 73,
+          "ENG_END": 57,
+          "MTC_MID": 42,
+          "MTC_END": 40,
+          "SCI_MID": 26,
+          "SCI_END": 41,
+          "SST_MID": 47,
+          "SST_END": 48
+        },
+        "stu_1777173668801_3l6z": {
+          "ENG_MID": 43,
+          "ENG_END": 51,
+          "MTC_MID": 44,
+          "MTC_END": 54,
+          "SCI_MID": 26,
+          "SCI_END": 40,
+          "SST_MID": 38,
+          "SST_END": 30
+        },
+        "stu_1777173718069_w922": {
+          "ENG_END": 48,
+          "MTC_END": 35,
+          "SCI_END": 45,
+          "SST_END": 56
+        },
+        "stu_1777173707515_e4j3": {
+          "ENG_MID": 48,
+          "ENG_END": 46,
+          "MTC_MID": 52,
+          "MTC_END": 51,
+          "SCI_MID": 33,
+          "SCI_END": 30,
+          "SST_MID": 40,
+          "SST_END": 41
+        },
+        "stu_2026t3_P5_13": {
+          "ENG_MID": 53,
+          "ENG_END": 46,
+          "MTC_MID": 30,
+          "MTC_END": 32,
+          "SCI_MID": 30,
+          "SCI_END": 26,
+          "SST_MID": 40,
+          "SST_END": 45
+        },
+        "stu_1777173778025_l109": {
+          "ENG_MID": 53,
+          "ENG_END": 44,
+          "MTC_MID": 35,
+          "MTC_END": 37,
+          "SCI_MID": 21,
+          "SCI_END": 18,
+          "SST_MID": 48,
+          "SST_END": 35
+        },
+        "stu_1777173741568_waz5": {
+          "ENG_MID": 35,
+          "ENG_END": 34,
+          "MTC_MID": 21,
+          "MTC_END": 25,
+          "SCI_MID": 30,
+          "SCI_END": 29,
+          "SST_MID": 36,
+          "SST_END": 47
+        },
+        "stu_1777173789703_u6s7": {
+          "ENG_MID": 21,
+          "ENG_END": 24,
+          "MTC_MID": 42,
+          "MTC_END": 43,
+          "SCI_MID": 20,
+          "SCI_END": 12,
+          "SST_MID": 37,
+          "SST_END": 40
+        }
+      }
+    },
+    "P6": {
+      "roster": [
+        {
+          "id": "stu_1777191204581_k9dm",
+          "name": "NAKALEMA JEMIMAH",
+          "cls": "P6"
+        },
+        {
+          "id": "stu_1777191204582_7xqa",
+          "name": "KISEKKA ANDREW",
+          "cls": "P6"
+        },
+        {
+          "id": "stu_2026t3_P6_03",
+          "name": "MUKISA PRAYER",
+          "cls": "P6"
+        },
+        {
+          "id": "stu_2026t3_P6_04",
+          "name": "NAMUKISA PRAISE",
+          "cls": "P6"
+        },
+        {
+          "id": "stu_1777191204584_c8zr",
+          "name": "NAKIMBUGWE ZAM",
+          "cls": "P6"
+        },
+        {
+          "id": "stu_1777191204585_m4tw",
+          "name": "JJUUKO MESHACH",
+          "cls": "P6"
+        },
+        {
+          "id": "stu_1777173633601_p9rr",
+          "name": "ASIFIWE CALVIN",
+          "cls": "P6"
+        },
+        {
+          "id": "stu_1777191204586_b1nk",
+          "name": "NAKATO NANTAKE RITAH",
+          "cls": "P6"
+        },
+        {
+          "id": "stu_1777191204583_v2lp",
+          "name": "SAKA ERICK",
+          "cls": "P6"
+        },
+        {
+          "id": "stu_2026t3_P6_10",
+          "name": "KYESSWA RAYAN",
+          "cls": "P6"
+        }
+      ],
+      "marks": {
+        "stu_1777191204581_k9dm": {
+          "ENG_MID": 65,
+          "ENG_END": 86,
+          "MTC_MID": 74,
+          "MTC_END": 61,
+          "SCI_MID": 75,
+          "SCI_END": 58,
+          "SST_MID": 84,
+          "SST_END": 85
+        },
+        "stu_1777191204582_7xqa": {
+          "ENG_MID": 47,
+          "ENG_END": 71,
+          "MTC_MID": 67,
+          "MTC_END": 64,
+          "SCI_MID": 53,
+          "SCI_END": 40,
+          "SST_MID": 54,
+          "SST_END": 66
+        },
+        "stu_2026t3_P6_03": {
+          "ENG_MID": 45,
+          "ENG_END": 75,
+          "MTC_MID": 48,
+          "MTC_END": 47,
+          "SCI_MID": 53,
+          "SCI_END": 44,
+          "SST_MID": 50,
+          "SST_END": 74
+        },
+        "stu_2026t3_P6_04": {
+          "ENG_MID": 71,
+          "ENG_END": 73,
+          "MTC_MID": 44,
+          "MTC_END": 40,
+          "SCI_MID": 54,
+          "SCI_END": 40,
+          "SST_MID": 65,
+          "SST_END": 78
+        },
+        "stu_1777191204584_c8zr": {
+          "ENG_MID": 63,
+          "ENG_END": 80,
+          "MTC_MID": 15,
+          "MTC_END": 50,
+          "SCI_MID": 53,
+          "SCI_END": 44,
+          "SST_MID": 44,
+          "SST_END": 51
+        },
+        "stu_1777191204585_m4tw": {
+          "ENG_MID": 43,
+          "ENG_END": 66,
+          "MTC_MID": 57,
+          "MTC_END": 47,
+          "SCI_MID": 68,
+          "SCI_END": 37,
+          "SST_MID": 71,
+          "SST_END": 65
+        },
+        "stu_1777173633601_p9rr": {
+          "ENG_MID": 40,
+          "ENG_END": 60,
+          "MTC_MID": 25,
+          "MTC_END": 42,
+          "SCI_MID": 50,
+          "SCI_END": 40,
+          "SST_MID": 55,
+          "SST_END": 50
+        },
+        "stu_1777191204586_b1nk": {
+          "ENG_MID": 33,
+          "ENG_END": 57,
+          "MTC_MID": 54,
+          "MTC_END": 30,
+          "SCI_MID": 43,
+          "SCI_END": 48,
+          "SST_MID": 42,
+          "SST_END": 48
+        },
+        "stu_1777191204583_v2lp": {
+          "ENG_MID": 53,
+          "ENG_END": 64,
+          "MTC_MID": 52,
+          "MTC_END": 18,
+          "SCI_MID": 51,
+          "SCI_END": 35,
+          "SST_MID": 48,
+          "SST_END": 51
+        },
+        "stu_2026t3_P6_10": {
+          "ENG_MID": 23,
+          "MTC_MID": 17,
+          "SCI_MID": 29,
+          "SST_MID": 20
+        }
+      }
+    }
+  }
+}
