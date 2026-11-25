@@ -344,15 +344,45 @@ const App = (() => {
     if (!val) return;
     const textarea = document.getElementById(`cmt-${role}-${sid}`);
     if (textarea) textarea.value = val;
-    saveComment(sid, role, val);
+    saveComment(sid, role, val, true);
   }
 
-  function saveComment(sid, role, value) {
+  function saveComment(sid, role, value, isManual = true) {
     const { cls, term, year } = session;
+    const level = CONFIG.classLevel(cls);
+    const marks = Storage.loadStudentMarks(cls, term, year, sid);
+    const calc = level === 'lower' ? Logic.calcLower(marks) : Logic.calcUpper(marks);
+    const tier = Comments.getTier(level, calc);
+
     const all = Storage.loadAllComments(cls, term, year);
     if (!all[sid]) all[sid] = {};
     all[sid][role] = value;
+    all[sid][role === 'teacher' ? 'manualTeacher' : 'manualHt'] = Boolean(isManual);
+    if (tier) all[sid].tier = tier;
     Storage.saveAllComments(cls, term, year, all);
+  }
+
+  async function randomizeComments() {
+    if (!session) return;
+    const { cls, term, year } = session;
+    const nextSeed = Storage.loadCommentSeed(cls, term, year) + 1;
+    Storage.saveCommentSeed(cls, term, year, nextSeed);
+
+    const students = Storage.buildClassSnapshot(cls, term, year);
+    await UI.renderResults(session, students);
+    UI.toast('Comments shuffled by division (manual edits preserved).', 'success');
+  }
+
+  async function resetCommentsToAuto() {
+    if (!session) return;
+    const { cls, term, year } = session;
+    const nextSeed = Storage.loadCommentSeed(cls, term, year) + 1;
+    Storage.saveCommentSeed(cls, term, year, nextSeed);
+    Storage.saveAllComments(cls, term, year, {});
+
+    const students = Storage.buildClassSnapshot(cls, term, year);
+    await UI.renderResults(session, students);
+    UI.toast('All comments reset to fresh division-matched suggestions.', 'info');
   }
 
   // ══════════════════════════════════════════
@@ -360,12 +390,27 @@ const App = (() => {
   // ══════════════════════════════════════════
   function exportExcel() {
     const { cls, term, year } = session;
+    const level = CONFIG.classLevel(cls);
     const students = Storage.buildClassSnapshot(cls, term, year);
+    const seed = Storage.loadCommentSeed(cls, term, year);
+    const assignedMap = Comments.assignClassComments(students, level, session, seed);
 
     // Pull comments into snapshot
     const commentsMap = Storage.loadAllComments(cls, term, year);
     students.forEach(s => {
-      s.comments = commentsMap[s.id] || { teacher: '', ht: '' };
+      const saved = commentsMap[s.id] || {};
+      const auto  = assignedMap[s.id] || {};
+      const tier  = Comments.getTier(level, s.calc);
+      const tierChanged = Boolean(saved.tier && tier && saved.tier !== tier);
+      const sigChanged  = Boolean(saved.sig && auto.sig && saved.sig !== auto.sig);
+      const keepTeacher = !tierChanged && (saved.manualTeacher || !sigChanged) && Boolean(saved.teacher);
+      const keepHt      = !tierChanged && (saved.manualHt      || !sigChanged) && Boolean(saved.ht);
+
+      s.comments = {
+        teacher: keepTeacher ? saved.teacher : (auto.teacher || ''),
+        ht:      keepHt      ? saved.ht      : (auto.ht      || ''),
+      };
+
       // Override comment text from DOM if results view is open
       const teacherEl = document.getElementById(`cmt-teacher-${s.id}`);
       const htEl      = document.getElementById(`cmt-ht-${s.id}`);
@@ -383,7 +428,7 @@ const App = (() => {
     loadHistorySession,
     addStudent, removeStudent, renameStudent, exportRoster, importRoster,
     onMarkInput, validateInput, saveStudentMarks, saveAllMarks, clearClassMarks,
-    applyCommentFromDropdown, saveComment,
+    applyCommentFromDropdown, saveComment, randomizeComments, resetCommentsToAuto,
     saveEntrySubjectOrder, resetEntrySubjectOrder, reorderEntryStudents,
     exportExcel,
   };

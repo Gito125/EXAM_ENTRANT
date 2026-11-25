@@ -10,6 +10,7 @@ const Storage = (() => {
     roster:    (cls) => `acadex_roster_${cls}`,
     marks:     (cls, term, year) => `acadex_marks_${cls}_T${term}_${year}`,
     comments:  (cls, term, year) => `acadex_comments_${cls}_T${term}_${year}`,
+    commentSeed: (cls, term, year) => `acadex_comment_seed_${cls}_T${term}_${year}`,
     subjectOrder: (cls, term, year) => `acadex_subject_order_${cls}_T${term}_${year}`,
   };
 
@@ -160,7 +161,7 @@ const Storage = (() => {
   }
 
   // ── Comments ─────────────────────────────
-  // comments stored as { [studentId]: { teacher: '...', ht: '...' } }
+  // comments stored as { [studentId]: { teacher: '...', ht: '...', tier: '...', sig: '...', manualTeacher: bool, manualHt: bool } }
   function loadAllComments(cls, term, year) {
     return load(KEYS.comments(cls, term, year), {});
   }
@@ -171,6 +172,12 @@ const Storage = (() => {
   }
   function saveAllComments(cls, term, year, commentsMap) {
     return save(KEYS.comments(cls, term, year), commentsMap);
+  }
+  function loadCommentSeed(cls, term, year) {
+    return Number(load(KEYS.commentSeed(cls, term, year), 0)) || 0;
+  }
+  function saveCommentSeed(cls, term, year, seed) {
+    return save(KEYS.commentSeed(cls, term, year), Number(seed) || 0);
   }
 
   // ── Full class data snapshot ──────────────
@@ -207,6 +214,7 @@ const Storage = (() => {
     loadAllMarks, saveStudentMarks, saveAllMarks, loadStudentMarks,
     saveEntrySubjectOrder, loadEntrySubjectOrder, clearEntrySubjectOrder,
     loadAllComments, saveStudentComment, saveAllComments,
+    loadCommentSeed, saveCommentSeed,
     buildClassSnapshot, dumpAll,
   };
 })();

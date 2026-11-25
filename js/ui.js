@@ -613,53 +613,111 @@ const UI = (() => {
       return `<tr>${cells}</tr>`;
     }).join('');
 
-    // Comments section
+    // Comments section — division-locked, non-repeating shuffle + smart subject awareness
+    const seed = Storage.loadCommentSeed(cls, term, year);
+    const assignedMap = Comments.assignClassComments(students, level, session, seed);
+    const savedComments = Storage.loadAllComments(cls, term, year);
+    const updatedComments = {};
+    let hasAnyManualEdit = false;
+
+    const toOptTag = (c, selected) =>
+      `<option value="${escHtml(c)}" ${c === selected ? 'selected' : ''}>${escHtml(c.length > 88 ? c.substring(0, 88) + '…' : c)}</option>`;
+
+    const buildDropdownOpts = (structured, tierLabel, selectedVal) => {
+      if (!structured || !structured.all.length) return '';
+      const cleanTier = (tierLabel || '').replace('_', ' ');
+      if (structured.subject.length > 0 && structured.analysis?.weakSubjects) {
+        const subjOpts = structured.subject.map(c => toOptTag(c, selectedVal)).join('');
+        const genOpts  = structured.general.map(c => toOptTag(c, selectedVal)).join('');
+        return `
+          <optgroup label="Subject-Focused (${escHtml(structured.analysis.weakSubjects)}) — ${structured.subject.length}">
+            ${subjOpts}
+          </optgroup>
+          <optgroup label="General ${escHtml(cleanTier)} Comments — ${structured.general.length}">
+            ${genOpts}
+          </optgroup>
+        `;
+      }
+      return structured.general.map(c => toOptTag(c, selectedVal)).join('');
+    };
+
     const commentsRows = students.map(s => {
-      const cmt = s.comments || {};
-      const tier = level === 'lower'
-        ? Comments.getLowerTier(s.calc?.TOTAL_END)
-        : Comments.getUpperTier(s.calc?.DIV_END);
+      const tier = Comments.getTier(level, s.calc);
+      const auto = assignedMap[s.id] || null;
+      const prev = savedComments[s.id] || {};
 
-      const teacherSuggest = tier ? Comments.suggest(level, 'teacher', tier, s.id) : '';
-      const htSuggest      = tier ? Comments.suggest(level, 'ht',      tier, s.id) : '';
-      const teacherOptions = tier ? Comments.getAllForTier(level, 'teacher', tier) : [];
-      const htOptions      = tier ? Comments.getAllForTier(level, 'ht',      tier) : [];
+      // If student moved to a different division/tier, auto-refresh to the new division
+      const tierChanged = Boolean(prev.tier && tier && prev.tier !== tier);
+      const keepManualTeacher = Boolean(!tierChanged && prev.manualTeacher && prev.teacher && !prev.teacher.includes('—'));
+      const keepManualHt      = Boolean(!tierChanged && prev.manualHt && prev.ht && !prev.ht.includes('—'));
 
-      const teacherVal = cmt.teacher || teacherSuggest;
-      const htVal      = cmt.ht      || htSuggest;
+      const teacherVal = tier
+        ? (keepManualTeacher ? prev.teacher : (auto?.teacher || ''))
+        : (keepManualTeacher ? prev.teacher : '');
+      const htVal = tier
+        ? (keepManualHt ? prev.ht : (auto?.ht || ''))
+        : (keepManualHt ? prev.ht : '');
 
-      const toOpts = (pool, selected) => pool.map(c =>
-        `<option value="${escHtml(c)}" ${c === selected ? 'selected' : ''}>${c.substring(0, 80)}…</option>`
-      ).join('');
+      if (keepManualTeacher || keepManualHt) hasAnyManualEdit = true;
+
+      updatedComments[s.id] = {
+        teacher: teacherVal,
+        ht: htVal,
+        tier: tier || null,
+        sig: auto?.sig || '',
+        manualTeacher: keepManualTeacher,
+        manualHt: keepManualHt,
+      };
+
+      const teacherStructured = tier ? Comments.getTierOptionsStructured(level, 'teacher', tier, s.marks) : null;
+      const htStructured      = tier ? Comments.getTierOptionsStructured(level, 'ht',      tier, s.marks) : null;
+      const analysis          = auto?.analysis || teacherStructured?.analysis || null;
+
+      let metaBadges = '';
+      if (tier) {
+        const tierDisplay = level === 'upper' ? `Div ${s.calc?.DIV_END}` : tier;
+        const badgeCls = level === 'upper' ? `badge-${s.calc?.DIV_END}` : 'badge-pos';
+        metaBadges += `<span class="badge ${badgeCls}" style="font-size:.7rem;margin-right:.35rem">${escHtml(tierDisplay)}</span>`;
+        if (analysis?.hasWeakSubject && !analysis.allPoor) {
+          metaBadges += `<span style="font-size:.72rem;color:var(--text-2)" title="Weak area detected for smart comments">Focus: ${escHtml(analysis.weakSubjects)}</span>`;
+        } else if (analysis?.allPoor) {
+          metaBadges += `<span style="font-size:.72rem;color:var(--text-3)" title="Low marks across most subjects — using general comments">General (all subjects)</span>`;
+        }
+      }
 
       return `
         <tr>
-          <td style="font-weight:500;white-space:nowrap">${s.name}</td>
+          <td style="font-weight:500;white-space:nowrap">
+            <div>${escHtml(s.name)}</div>
+            ${metaBadges ? `<div style="margin-top:.25rem">${metaBadges}</div>` : ''}
+          </td>
           <td>
             <div class="comment-field">
               <select class="suggest-select" onchange="App.applyCommentFromDropdown(this,'${s.id}','teacher')">
-                <option value="">— Select template —</option>
-                ${toOpts(teacherOptions, teacherVal)}
+                <option value="">— Select ${tier ? escHtml(tier.replace('_', ' ')) : ''} template —</option>
+                ${buildDropdownOpts(teacherStructured, tier, teacherVal)}
               </select>
               <textarea id="cmt-teacher-${s.id}" rows="2"
-                onchange="App.saveComment('${s.id}','teacher',this.value)"
+                onchange="App.saveComment('${s.id}','teacher',this.value,true)"
               >${escHtml(teacherVal)}</textarea>
             </div>
           </td>
           <td>
             <div class="comment-field">
               <select class="suggest-select" onchange="App.applyCommentFromDropdown(this,'${s.id}','ht')">
-                <option value="">— Select template —</option>
-                ${toOpts(htOptions, htVal)}
+                <option value="">— Select ${tier ? escHtml(tier.replace('_', ' ')) : ''} template —</option>
+                ${buildDropdownOpts(htStructured, tier, htVal)}
               </select>
               <textarea id="cmt-ht-${s.id}" rows="2"
-                onchange="App.saveComment('${s.id}','ht',this.value)"
+                onchange="App.saveComment('${s.id}','ht',this.value,true)"
               >${escHtml(htVal)}</textarea>
             </div>
           </td>
         </tr>
       `;
     }).join('');
+
+    Storage.saveAllComments(cls, term, year, updatedComments);
 
     main().innerHTML = `
       <div class="card" style="padding:1rem">
@@ -678,7 +736,13 @@ const UI = (() => {
           </table>
         </div>
 
-        <div class="section-title" style="margin-top:1.5rem">Teacher & HT Comments — <span>${cls}</span></div>
+        <div class="table-toolbar" style="margin-top:1.5rem;margin-bottom:.75rem">
+          <div class="section-title" style="margin:0">Teacher & HT Comments — <span>${cls}</span></div>
+          <div class="toolbar-right">
+            <button class="btn btn-secondary btn-sm" onclick="App.randomizeComments()" title="Shuffle comments within each student's division/tier (preserves manually edited comments)">🎲 Randomize Comments</button>
+            ${hasAnyManualEdit ? `<button class="btn btn-secondary btn-sm" onclick="App.resetCommentsToAuto()" title="Clear manual edits and deal fresh division-matched comments to all students">↺ Reset Manual Edits</button>` : ''}
+          </div>
+        </div>
         <div class="marks-wrap">
           <table class="comments-table">
             <thead><tr><th>Student</th><th>Teacher Comment</th><th>HT Comment</th></tr></thead>
